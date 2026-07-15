@@ -37,20 +37,20 @@ export default function Header({ onNavigate }) {
         {/* Esquerda: LinkedIn */}
         <nav className="flex flex-col">
           <a
-            href="https://linkedin.com/in/anamariacemantika"
+            href="https://www.instagram.com/utinareal?utm_source=qr&igsh=YzUzZXh2aGc3eGRo"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-blue-200 hover:text-blue-400"
+            className="text-sm text-blue-200 hover:text-blue-400"
           >
-            LinkedIn
+            UTInaReal no Instagram
           </a>
           <a
-            href="https://instagram.com/ampamorim"
+            href="https://www.instagram.com/bruno_badaro?utm_source=qr&igsh=MWdoaDNjcnJlYzhpYg=="
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-blue-200 hover:text-blue-400"
+            className="text-sm text-blue-200 hover:text-blue-400"
           >
-            Instagram
+            Bruno Badaró no Instagram
           </a>
         </nav>
 

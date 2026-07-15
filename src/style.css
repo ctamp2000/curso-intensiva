@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #eeeeee; /* fundo cinza claro */
+  --color-brand-bg-alt: #f5f5f5; /* fundo alternativo */
+  --color-brand-bar: #cfcfcf; /* barra de menu */
+  --color-brand-button: #bdbdbd; /* botão acesso */
+  --color-brand-text: #2e2e2e; /* texto principal */
+  --color-brand-primary: #3b82f6; /* azul primário */
+  --color-brand-border: #d1d5db; /* borda padrão */
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}

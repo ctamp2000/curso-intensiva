@@ -21,3 +21,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 npm install
 npm run dev
+
+## Para fazer o deploy (atualizar o link da página para executar pela internet)
+
+npm run deploy

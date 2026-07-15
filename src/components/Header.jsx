@@ -37,7 +37,7 @@ export default function Header({ onNavigate }) {
         {/* Esquerda: LinkedIn */}
         <nav className="flex flex-col">
           <a
-            href="https://www.instagram.com/utinareal?utm_source=qr&igsh=YzUzZXh2aGc3eGRo"
+            href="https://www.instagram.com/utinareal"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-blue-200 hover:text-blue-400"
@@ -45,7 +45,7 @@ export default function Header({ onNavigate }) {
             UTInaReal no Instagram
           </a>
           <a
-            href="https://www.instagram.com/bruno_badaro?utm_source=qr&igsh=MWdoaDNjcnJlYzhpYg=="
+            href="https://www.instagram.com/bruno_badaro"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-blue-200 hover:text-blue-400"

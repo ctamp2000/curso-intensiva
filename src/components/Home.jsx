@@ -76,7 +76,7 @@ export default function Home({ onNavigate }) {
             {/* Left arrow */}
             <button
               onClick={() => scroll("left")}
-              className="flex items-center justify-center flex-shrink-0 w-12 sm:w-16 md:w-24 h-12 sm:h-16 md:h-24 text-brand-primary text-4xl sm:text-6xl md:text-9xl hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded transition"
+              className="flex items-center justify-center shrink-0 w-12 sm:w-16 md:w-24 h-12 sm:h-16 md:h-24 text-brand-primary text-4xl sm:text-6xl md:text-9xl hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded transition"
               aria-label="Projetos anteriores"
             >
               ‹
@@ -90,7 +90,7 @@ export default function Home({ onNavigate }) {
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="bg-brand-bg w-40 sm:w-56 md:w-64 flex-shrink-0 p-3 sm:p-4 border border-brand-border"
+                  className="bg-brand-bg w-40 sm:w-56 md:w-64 shrink-0 p-3 sm:p-4 border border-brand-border"
                 >
                   <div className="bg-brand-bg-alt h-24 sm:h-32 md:h-40 overflow-hidden">
                     <img
@@ -112,7 +112,7 @@ export default function Home({ onNavigate }) {
             {/* Right arrow */}
             <button
               onClick={() => scroll("right")}
-              className="flex items-center justify-center flex-shrink-0 w-12 sm:w-16 md:w-24 h-12 sm:h-16 md:h-24 text-brand-primary text-4xl sm:text-6xl md:text-9xl hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded transition"
+              className="flex items-center justify-center shrink-0 w-12 sm:w-16 md:w-24 h-12 sm:h-16 md:h-24 text-brand-primary text-4xl sm:text-6xl md:text-9xl hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded transition"
               aria-label="Próximos projetos"
             >
               ›

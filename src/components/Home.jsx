@@ -3,27 +3,51 @@ import React, { useRef } from "react";
 const projects = [
   {
     id: 1,
-    title: "Card Projeto A",
-    description: "Texto descritivo do projeto em destaque.",
-    image: "src/assets/cards/projetoA.jpg",
+    title: "VC ou FR: o que mexer primeiro no ventilador?",
+    videoId: "oP-Sr2ukP-Q", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=oP-Sr2ukP-Q", // link normal para abrir em nova aba  },
   },
   {
     id: 2,
-    title: "Card Projeto B",
-    description: "Texto descritivo do projeto em destaque.",
-    image: "src/assets/cards/projetoB.png",
+    title: "Como interpretar QUALQUER gasometria em 5 passos (na prática).",
+    videoId: "FlDJuIyEnis", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=FlDJuIyEnis", // link normal para abrir em nova aba  },
   },
   {
     id: 3,
-    title: "Card Projeto C",
-    description: "Texto descritivo do projeto em destaque.",
-    image: "src/assets/cards/projetoC.png",
+    title: "Comunicação não é dom, é técnica. E isso muda tudo na UTI.",
+    videoId: "-PYn-4_2egw", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=-PYn-4_2egw", // link normal para abrir em nova aba  },
   },
   {
     id: 4,
-    title: "Card Projeto D",
-    description: "Texto descritivo do projeto em destaque.",
-    image: "src/assets/cards/projetoD.png",
+    title: "Choque na Real. Garanto que nunca mais vai esquecer os conceitos.",
+    videoId: "vWe8Zw9cVdk", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=vWe8Zw9cVdk", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 5,
+    title: "FE do ECO é suficiente? FEG vs PC: O que realmente importa.",
+    videoId: "HuMMpXaIAng", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/HuMMpXaIAng", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 6,
+    title: "O perigo da PVC. Por que ela pode afogar seu paciente?",
+    videoId: "yd5BRm3nsiM", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/yd5BRm3nsiM", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 7,
+    title: "Choque. O paradoxo da PAM normal.",
+    videoId: "SutPSOUFNJs", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/SutPSOUFNJs", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 8,
+    title: "Por que sua UTI precisa de silêncio?",
+    videoId: "BCK6vVlJdK8", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/BCK6vVlJdK8", // link normal para abrir em nova aba  },
   },
 ];
 
@@ -33,17 +57,10 @@ export default function Home({ onNavigate }) {
   const scroll = (direction) => {
     if (carouselRef.current) {
       const scrollAmount = 300;
-      if (direction === "left") {
-        carouselRef.current.scrollBy({
-          left: -scrollAmount,
-          behavior: "smooth",
-        });
-      } else {
-        carouselRef.current.scrollBy({
-          left: scrollAmount,
-          behavior: "smooth",
-        });
-      }
+      carouselRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -58,7 +75,7 @@ export default function Home({ onNavigate }) {
           <p className="text-sm md:text-base leading-relaxed">
             A Plataforma UTInaReal tem como objetivo blá blá blá....Aqui você
             terá acesso às aulas, materiais e conteúdos exclusivos preparados
-            pelo Dr. especialista em medicina intensiva.
+            pelo Dr.Bruno Badaró especialista em medicina intensiva.
           </p>
         </div>
       </section>
@@ -88,13 +105,16 @@ export default function Home({ onNavigate }) {
               className="flex gap-3 sm:gap-4 md:gap-6 mx-auto overflow-x-auto flex-1 pb-2 scroll-smooth"
             >
               {projects.map((project) => (
-                <div
+                <a
                   key={project.id}
-                  className="bg-brand-bg w-40 sm:w-56 md:w-64 shrink-0 p-3 sm:p-4 border border-brand-border"
+                  href={project.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-brand-bg w-40 sm:w-56 md:w-64 shrink-0 p-3 sm:p-4 border border-brand-border hover:shadow-lg transition"
                 >
                   <div className="bg-brand-bg-alt h-24 sm:h-32 md:h-40 overflow-hidden">
                     <img
-                      src={project.image}
+                      src={`https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg`}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -102,10 +122,7 @@ export default function Home({ onNavigate }) {
                   <h3 className="font-semibold text-sm mb-2 mt-2">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-brand-text line-clamp-2 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+                </a>
               ))}
             </div>
 

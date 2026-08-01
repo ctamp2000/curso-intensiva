@@ -33,7 +33,7 @@ export default function Header({ onNavigate }) {
       </a>
 
       {/* Top banner */}
-      <div className="bg-brand-primary px-4 sm:px-6 md:px-8 py-4 flex items-center justify-between">
+      <div className="bg-brand-bar px-4 sm:px-6 md:px-8 py-2 flex items-center justify-between">
         {/* Esquerda: LinkedIn */}
         <nav className="flex flex-col">
           <a
@@ -42,7 +42,7 @@ export default function Header({ onNavigate }) {
             rel="noopener noreferrer"
             className="text-sm text-blue-200 hover:text-blue-400"
           >
-            UTInaReal no Instagram
+            Instagram da Plataforma
           </a>
           <a
             href="https://www.instagram.com/bruno_badaro"
@@ -50,16 +50,14 @@ export default function Header({ onNavigate }) {
             rel="noopener noreferrer"
             className="text-sm text-blue-200 hover:text-blue-400"
           >
-            Bruno Badaró no Instagram
+            Instagram do Dr. Bruno Badaró
           </a>
         </nav>
 
         {/* Centro: título e subtítulo */}
         <div className="flex flex-col items-center text-center grow">
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white">
-            Plataforma UTInaReal
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white italic">
+          <p className="brand-title">UTInaReal</p>{" "}
+          <p className="mt-1 text-sm md:text-lg italic text-gray-200">
             Aulas focadas na especialização dos atendimentos em UTI
           </p>
         </div>
@@ -67,7 +65,7 @@ export default function Header({ onNavigate }) {
         {/* Direita: botão */}
         <button
           type="button"
-          className="bg-brand-button px-4 sm:px-6 py-2 rounded-lg text-sm sm:text-base md:text-lg font-semibold text-brand-text whitespace-nowrap hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-primary transition-opacity"
+          className="bg-brand-primary text-white px-7 py-2.5 rounded-xl text-sm sm:text-base font-semibold tracking-wide shadow-md hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bar "
         >
           Acessar
         </button>

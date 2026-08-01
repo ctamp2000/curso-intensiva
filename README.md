@@ -17,6 +17,16 @@ Note: This will impact Vite dev & build performances.
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+## Classes e Usos
+
+brand-title -->Nome UTInaReal no cabeçalho
+hero-label --> “Medicina intensiva na prática”
+hero-title --> Título principal da página
+section-title --> “Projetos em destaque”, “Cursos”, “Notícias”
+card-title --> Títulos dos vídeos e cards
+body-text --> Textos descritivos
+meta-text --> Datas e informações secundárias
+
 ## Para executar local
 
 npm install

@@ -1,17 +1,17 @@
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx,html}"],
+  content: ["./index.html", "./src/**/*.{js,html}"],
   theme: {
     extend: {
       colors: {
         // Brand colors from @theme in style.css
         brand: {
-          bg: "#0f172a", // fundo principal
-          "bg-alt": "#111827", // seções
-          bar: "#1f2937",
-          button: "#2563eb",
-          text: "#f3f4f6",
+          bg: "#eeeeee",
+          "bg-alt": "#f5f5f5",
+          bar: "#cfcfcf",
+          button: "#bdbdbd",
+          text: "#2e2e2e",
           primary: "#3b82f6",
-          border: "#374151",
+          border: "#d1d5db",
         },
         // Legacy colors (can be migrated to brand.*)
         primary: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import Header from "./components/Header.jsx";
+import Header from "./components/layout/Header.jsx";
 import Home from "./components/Home.jsx";
 import Products from "./components/Products.jsx";
 import Collaborators from "./components/Collaborators.jsx";

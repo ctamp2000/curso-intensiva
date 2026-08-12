@@ -1,8 +1,33 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProjectCard from "../ui/ProjectCard";
 import projects from "../../data/projects";
+
 export default function FeaturedProjects() {
   const carouselRef = useRef(null);
+
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateArrows = () => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    const { scrollLeft, scrollWidth, clientWidth } = carousel;
+
+    setCanScrollLeft(scrollLeft > 1);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+    updateArrows();
+    carousel.addEventListener("scroll", updateArrows);
+    window.addEventListener("resize", updateArrows);
+    return () => {
+      carousel.removeEventListener("scroll", updateArrows);
+      window.removeEventListener("resize", updateArrows);
+    };
+  }, []);
 
   const scroll = (direction) => {
     if (carouselRef.current) {
@@ -30,7 +55,12 @@ export default function FeaturedProjects() {
           {/* Left arrow */}
           <button
             onClick={() => scroll("left")}
-            className="carousel-button"
+            disabled={!canScrollLeft}
+            className={`carousel-button ${
+              !canScrollLeft
+                ? "opacity-30 cursor-not-allowed pointer-events-none"
+                : ""
+            }`}
             aria-label="Projetos anteriores"
           >
             ‹
@@ -49,7 +79,12 @@ export default function FeaturedProjects() {
           {/* Right arrow */}
           <button
             onClick={() => scroll("right")}
-            className="carousel-button"
+            disabled={!canScrollRight}
+            className={`carousel-button ${
+              !canScrollRight
+                ? "opacity-30 cursor-not-allowed pointer-events-none"
+                : ""
+            }`}
             aria-label="Próximos projetos"
           >
             ›

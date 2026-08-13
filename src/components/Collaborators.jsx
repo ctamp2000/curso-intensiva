@@ -1,9 +1,7 @@
-import React from "react";
-
 const CollaboratorItem = () => (
   <div className="flex items-start gap-4 sm:gap-5 py-5 sm:py-6 border-b border-brand-border">
     {/* Avatar */}
-    <div className="w-20 h-20 flex-shrink-0 rounded-full bg-brand-bg flex items-center justify-center">
+    <div className="w-20 h-20 shrink-0 rounded-full bg-brand-bg flex items-center justify-center">
       <svg
         className="w-10 h-10 text-brand-text"
         fill="currentColor"
@@ -30,7 +28,7 @@ const CollaboratorItem = () => (
     </div>
 
     {/* Button */}
-    <div className="flex-shrink-0">
+    <div className="shrink-0">
       <button className="bg-brand-primary hover:opacity-90 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2">
         ℹ
       </button>

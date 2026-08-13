@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./style.css";
 import Header from "./components/layout/Header.jsx";
 import Home from "./components/Home.jsx";

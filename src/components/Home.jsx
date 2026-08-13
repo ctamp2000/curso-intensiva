@@ -6,11 +6,11 @@ import Footer from "./layout/Footer";
 export default function Home() {
   return (
     <>
-      /* CAMADA 2 - Apresentação - Hero */
+      / CAMADA 2 - Apresentação - Hero */
       <HeroSection />
-      /* CAMADA 4 - Projetos em destaque */
+      / CAMADA 4 - Projetos em destaque */
       <FeaturedProjects />
-      /* CAMADA 5 - Footer */
+      / CAMADA 5 - Footer */
       <Footer />
     </>
   );

@@ -18,7 +18,7 @@ export default function App() {
     <div className="min-h-screen bg-brand-bg flex flex-col">
       <Header onNavigate={handleNavigation} />
       <main id="main-content">
-        {currentPage === "home" && <Home onNavigate={handleNavigation} />}
+        {currentPage === "home" && <Home />}
         {currentPage === "products" && <Products />}
         {currentPage === "collaborators" && <Collaborators />}
       </main>

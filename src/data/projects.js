@@ -1,5 +1,13 @@
 const projects = [
   {
+    id: 11,
+    title:
+      "Por que a meta glicêmica de 80–110 foi enterrada (e qual usar na UTI hoje)",
+    videoDate: "18/08/2026",
+    videoId: "Zh_C_ebaLTk&t", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=Zh_C_ebaLTk&t", // link normal para abrir em nova aba  },
+  },
+  {
     id: 10,
     title: "Tempo de UTI NÃO faz de você um bom plantonista",
     videoDate: "03/08/2026",

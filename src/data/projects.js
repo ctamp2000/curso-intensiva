@@ -1,11 +1,25 @@
 const projects = [
   {
-    id: 11,
+    id: 13,
     title:
       "Por que a meta glicêmica de 80–110 foi enterrada (e qual usar na UTI hoje)",
     videoDate: "18/08/2026",
     videoId: "Zh_C_ebaLTk", // só o ID do vídeo
     videoUrl: "https://www.youtube.com/watch?v=Zh_C_ebaLTk", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 12,
+    title: "O erro da gasometria",
+    videoDate: "17/08/2026",
+    videoId: "nRotxr8kBoY", // só o ID do vídeo
+    videoUrl: " https://www.youtube.com/shorts/v=nRotxr8kBoY", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 11,
+    title: "O medo de travar",
+    videoDate: "13/08/2026",
+    videoId: "8OKubTphJd0", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/8OKubTphJd0", // link normal para abrir em nova aba  },
   },
   {
     id: 10,

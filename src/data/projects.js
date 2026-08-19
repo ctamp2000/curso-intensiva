@@ -4,8 +4,8 @@ const projects = [
     title:
       "Por que a meta glicêmica de 80–110 foi enterrada (e qual usar na UTI hoje)",
     videoDate: "18/08/2026",
-    videoId: "Zh_C_ebaLTk&t", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/watch?v=Zh_C_ebaLTk&t", // link normal para abrir em nova aba  },
+    videoId: "Zh_C_ebaLTk", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=Zh_C_ebaLTk", // link normal para abrir em nova aba  },
   },
   {
     id: 10,

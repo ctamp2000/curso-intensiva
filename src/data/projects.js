@@ -1,5 +1,19 @@
 const projects = [
   {
+    id: 15,
+    title: "PAM de 65 é meta ou é maquiagem?",
+    videoDate: "22/08/2026",
+    videoId: "iy357TaC9ho", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/v=iy357TaC9ho", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 14,
+    title: 'Como está a "bomba" que você entrega para o seu colega? ',
+    videoDate: "19/08/2026",
+    videoId: "XR2PlHxFOI4", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/v=XR2PlHxFOI4", // link normal para abrir em nova aba  },
+  },
+  {
     id: 13,
     title:
       "Por que a meta glicêmica de 80–110 foi enterrada (e qual usar na UTI hoje)",

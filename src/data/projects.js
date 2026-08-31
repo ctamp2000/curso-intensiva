@@ -1,17 +1,38 @@
 const projects = [
   {
+    id: 18,
+    title: "O Pós-Intubacão Imediato",
+    videoDate: "27/08/2026",
+    videoId: "Kg2AXtcAjhU", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/Kg2AXtcAjhU", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 17,
+    title: "Liderança e Postura na UTI",
+    videoDate: "25/08/2026",
+    videoId: "L0oAPqYv_FY", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/L0oAPqYv_FY", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 16,
+    title: "Sedar ou não sedar? A ciência por trás do despertar diário",
+    videoDate: "25/08/2026",
+    videoId: "2EgoRwwbXag", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=2EgoRwwbXag", // link normal para abrir em nova aba  },
+  },
+  {
     id: 15,
     title: "PAM de 65 é meta ou é maquiagem?",
     videoDate: "22/08/2026",
     videoId: "iy357TaC9ho", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/shorts/v=iy357TaC9ho", // link normal para abrir em nova aba  },
+    videoUrl: "https://www.youtube.com/shorts/iy357TaC9ho", // link normal para abrir em nova aba  },
   },
   {
     id: 14,
     title: 'Como está a "bomba" que você entrega para o seu colega? ',
     videoDate: "19/08/2026",
     videoId: "XR2PlHxFOI4", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/shorts/v=XR2PlHxFOI4", // link normal para abrir em nova aba  },
+    videoUrl: "https://www.youtube.com/shorts/XR2PlHxFOI4", // link normal para abrir em nova aba  },
   },
   {
     id: 13,
@@ -26,7 +47,7 @@ const projects = [
     title: "O erro da gasometria",
     videoDate: "17/08/2026",
     videoId: "nRotxr8kBoY", // só o ID do vídeo
-    videoUrl: " https://www.youtube.com/shorts/v=nRotxr8kBoY", // link normal para abrir em nova aba  },
+    videoUrl: " https://www.youtube.com/shorts/nRotxr8kBoY", // link normal para abrir em nova aba  },
   },
   {
     id: 11,

@@ -1,5 +1,35 @@
 const projects = [
   {
+    id: 22,
+    title: "Choque e hipotensão: pare de travar!",
+    videoDate: "02/09/2026",
+    videoId: "0rSs7MuLJ6c", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/0rSs7MuLJ6c", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 21,
+    title: "Sedar demais ou de menos? O dilema da UTI.",
+    videoDate: "01/09/2026",
+    videoId: "MAXX5xlZcg4", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/MAXX5xlZcg4", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 20,
+    title: "O que dizer quando não há mais cura? (Protocolo SPIKES na UTI)",
+    videoDate: "01/09/2026",
+    videoId: "9_NQxo9bwmY", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=9_NQxo9bwmY", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 19,
+    title:
+      "O que Fazer Sozinho no Plantão da Madrugada na UTI? | Método R.E.A.L.",
+    videoDate: "31/08/2026",
+    videoId: "EAGoxmIQkr8", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/EAGoxmIQkr8", // link normal para abrir em nova aba  },
+  },
+
+  {
     id: 18,
     title: "O Pós-Intubacão Imediato",
     videoDate: "27/08/2026",
@@ -8,10 +38,10 @@ const projects = [
   },
   {
     id: 17,
-    title: "Liderança e Postura na UTI",
-    videoDate: "25/08/2026",
-    videoId: "L0oAPqYv_FY", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/shorts/L0oAPqYv_FY", // link normal para abrir em nova aba  },
+    title: "O Pós-Intubacão Imediato",
+    videoDate: "27/08/2026",
+    videoId: "Kg2AXtcAjhU", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/Kg2AXtcAjhU", // link normal para abrir em nova aba  },
   },
   {
     id: 16,

@@ -2,6 +2,7 @@ import { useState } from "react";
 export default function Community() {
   const [formData, setFormData] = useState({
     nome: "",
+    sobrenome: "",
     email: "",
     whatsapp: "",
     profissao: "",
@@ -48,6 +49,15 @@ export default function Community() {
       setTipoMensagem("erro");
       setMensagem(
         "Informe um nome válido. Use apenas letras, espaços, hífen ou apóstrofo.",
+      );
+      setEnviando(false);
+      return;
+    }
+
+    if (!regexNome.test(formData.sobrenome.trim())) {
+      setTipoMensagem("erro");
+      setMensagem(
+        "Informe um sobrenome válido. Use apenas letras, espaços, hífen ou apóstrofo.",
       );
       setEnviando(false);
       return;
@@ -164,7 +174,7 @@ export default function Community() {
           >
             {" "}
             <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-              <div className="md:col-span-2">
+              <div className="md:col-span-3">
                 <label
                   htmlFor="nome"
                   className="block text-sm font-medium text-gray-200 mb-2"
@@ -178,12 +188,29 @@ export default function Community() {
                   placeholder="Digite seu nome"
                   value={formData.nome}
                   onChange={handleChange}
-                  required
+                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+              <div className="md:col-span-3">
+                <label
+                  htmlFor="sobrenome"
+                  className="block text-sm font-medium text-gray-200 mb-2"
+                >
+                  Sobrenome
+                </label>
+
+                <input
+                  id="sobrenome"
+                  name="sobrenome"
+                  type="text"
+                  placeholder="Digite seu sobrenome"
+                  value={formData.sobrenome}
+                  onChange={handleChange}
                   className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
               </div>
 
-              <div className="md:col-span-2">
+              <div className="md:col-span-3">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-200 mb-2"
@@ -202,7 +229,7 @@ export default function Community() {
                 />
               </div>
 
-              <div className="md:col-span-2">
+              <div className="md:col-span-3">
                 <label
                   htmlFor="whatsapp"
                   className="block text-sm font-medium text-gray-200 mb-2"

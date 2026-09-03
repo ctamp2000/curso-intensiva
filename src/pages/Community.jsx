@@ -10,19 +10,26 @@ export default function Community() {
   });
   const [mensagem, setMensagem] = useState("");
   const [tipoMensagem, setTipoMensagem] = useState("");
+  const [enviando, setEnviando] = useState(false);
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
+    let novoValor = type === "checkbox" ? checked : value;
 
+    if (name === "whatsapp") {
+      novoValor = value.replace(/[^0-9()\-\s]/g, "");
+    }
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: novoValor,
     }));
+
     setMensagem("");
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+    setEnviando(true);
 
     const nome = formData.nome.trim();
     const email = formData.email.trim();
@@ -37,30 +44,19 @@ export default function Community() {
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Aceita:
-    // 71999999999
-    // 5571999999999
-    //let whatsappSemPais = whatsapp;
-
-    // if (whatsapp.startsWith("55") && whatsapp.length === 13) {
-    //  whatsappSemPais = whatsapp.substring(2);
-    // }
-
-    // Celular brasileiro:
-    // 2 dígitos DDD + 9 + 8 dígitos
-    // const regexWhatsApp = /^[1-9]{2}9[0-9]{8}$/;
-
     if (!regexNome.test(nome)) {
       setTipoMensagem("erro");
       setMensagem(
         "Informe um nome válido. Use apenas letras, espaços, hífen ou apóstrofo.",
       );
+      setEnviando(false);
       return;
     }
 
     if (!regexEmail.test(email)) {
       setTipoMensagem("erro");
       setMensagem("Informe um endereço de e-mail válido.");
+      setEnviando(false);
       return;
     }
 
@@ -82,12 +78,14 @@ export default function Community() {
     if (!regexWhatsApp.test(whatsapp)) {
       setTipoMensagem("erro");
       setMensagem("Informe um WhatsApp válido com DDD. Ex.: (71) 98828-7829.");
+      setEnviando(false);
       return;
     }
 
     const whatsappNormalizado = `55${whatsapp}`;
     if (!regexTexto.test(profissao) || !/[A-Za-zÀ-ÖØ-öø-ÿ]/.test(profissao)) {
       setTipoMensagem("erro");
+      setEnviando(false);
       setMensagem("Informe uma profissão válida.");
       return;
     }
@@ -98,20 +96,26 @@ export default function Community() {
         !/[A-Za-zÀ-ÖØ-öø-ÿ]/.test(especialidade))
     ) {
       setTipoMensagem("erro");
+      setEnviando(false);
       setMensagem("Informe uma especialidade válida.");
       return;
     }
 
     if (!formData.consentimento) {
       setTipoMensagem("erro");
+      setEnviando(false);
       setMensagem(
         "É necessário autorizar o contato pelo WhatsApp para continuar.",
       );
       return;
     }
-
+    setFormData((prev) => ({
+      ...prev,
+      whatsapp: whatsappNormalizado,
+    }));
     setTipoMensagem("sucesso");
     setMensagem("Cadastro validado com sucesso.");
+    setEnviando(false);
 
     console.log("Dados do formulário:", {
       ...formData,
@@ -272,9 +276,10 @@ export default function Community() {
             <div className="mt-4 flex justify-center">
               <button
                 type="submit"
-                className="bg-brand-primary text-white font-semibold py-2.5 px-10 rounded-xl hover:opacity-90 transition"
+                disabled={enviando}
+                className="mt-2 mx-auto block rounded-lg bg-blue-600 px-6 py-2.5 font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                Quero entrar na comunidade
+                {enviando ? "Enviando..." : "Quero entrar na comunidade"}
               </button>
             </div>{" "}
             {mensagem && (

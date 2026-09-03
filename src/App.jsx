@@ -1,26 +1,17 @@
-import { useState } from "react";
 import "./style.css";
-import Header from "./components/layout/Header.jsx";
-import Home from "./components/Home.jsx";
-import Products from "./components/Products.jsx";
-import Collaborators from "./components/Collaborators.jsx";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./components/Home";
+import Community from "./pages/Community";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState("home");
-
-  const handleNavigation = (page) => {
-    setCurrentPage(page);
-    // Scroll to top
-    window.scrollTo(0, 0);
-  };
-
   return (
     <div className="min-h-screen bg-brand-bg flex flex-col">
-      <Header onNavigate={handleNavigation} />
       <main id="main-content">
-        {currentPage === "home" && <Home />}
-        {currentPage === "products" && <Products />}
-        {currentPage === "collaborators" && <Collaborators />}
+        <Routes>
+          <Route path="/" element={<Community />} />
+          <Route path="/portal" element={<Home />} />
+        </Routes>
       </main>
     </div>
   );

@@ -5,8 +5,26 @@ export default function handler(req, res) {
     });
   }
 
+  const {
+    nome,
+    sobrenome,
+    email,
+    whatsapp,
+    profissao,
+    especialidade,
+    consentimento,
+  } = req.body || {};
+
   return res.status(200).json({
     sucesso: true,
-    mensagem: "API de cadastro funcionando.",
+    dadosRecebidos: {
+      nome,
+      sobrenome,
+      email,
+      whatsapp,
+      profissao,
+      especialidade,
+      consentimento,
+    },
   });
 }

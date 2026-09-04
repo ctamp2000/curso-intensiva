@@ -119,27 +119,50 @@ export default function Community() {
       );
       return;
     }
-    setFormData((prev) => ({
-      ...prev,
-      nome: prev.nome.trim(),
-      sobrenome: prev.sobrenome.trim(),
-      email: prev.email.trim(),
+    const dadosCadastro = {
+      nome: formData.nome.trim(),
+      sobrenome: formData.sobrenome.trim(),
+      email: formData.email.trim(),
       whatsapp: whatsappNormalizado,
-      profissao: prev.profissao.trim(),
-      especialidade: prev.especialidade.trim(),
-    }));
-    setTipoMensagem("sucesso");
-    setMensagem("Cadastro validado com sucesso.");
-    setEnviando(false);
+      profissao: formData.profissao.trim(),
+      especialidade: formData.especialidade.trim(),
+      consentimento: formData.consentimento,
+    };
 
-    console.log("Dados do formulário:", {
-      ...formData,
-      nome,
-      email,
-      whatsapp: whatsappNormalizado,
-      profissao,
-      especialidade,
-    });
+    try {
+      const resposta = await fetch("/api/cadastro", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dadosCadastro),
+      });
+
+      const resultado = await resposta.json();
+
+      if (!resposta.ok || !resultado.sucesso) {
+        throw new Error(
+          resultado.erro || "Não foi possível enviar o cadastro.",
+        );
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        ...dadosCadastro,
+      }));
+
+      setTipoMensagem("sucesso");
+      setMensagem("Cadastro recebido com sucesso.");
+
+      console.log("Resposta da API:", resultado);
+    } catch (erro) {
+      console.error("Erro ao enviar cadastro:", erro);
+
+      setTipoMensagem("erro");
+      setMensagem("Não foi possível enviar o cadastro. Tente novamente.");
+    } finally {
+      setEnviando(false);
+    }
   }
   return (
     <div className="min-h-screen bg-brand-bg text-white">

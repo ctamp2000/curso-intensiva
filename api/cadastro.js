@@ -74,8 +74,10 @@ export default async function handler(req, res) {
     const resultadoManychat = await respostaManychat.json();
 
     if (!respostaManychat.ok) {
-      console.error("Erro Manychat:", resultadoManychat);
-
+      console.error(
+        "Erro Manychat:",
+        JSON.stringify(resultadoManychat, null, 2),
+      );
       return res.status(502).json({
         erro: "Não foi possível criar o contato no Manychat.",
         detalhe: resultadoManychat,

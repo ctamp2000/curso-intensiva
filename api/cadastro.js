@@ -34,6 +34,20 @@ export default async function handler(req, res) {
     });
   }
 
+  let whatsappNumeros = whatsapp.replace(/\D/g, "");
+
+  // Remove zero antes do DDD
+  if (whatsappNumeros.startsWith("0")) {
+    whatsappNumeros = whatsappNumeros.substring(1);
+  }
+
+  // Remove o 55 se já tiver vindo do formulário
+  if (whatsappNumeros.startsWith("55") && whatsappNumeros.length === 13) {
+    whatsappNumeros = whatsappNumeros.substring(2);
+  }
+
+  const phoneManychat = `+55${whatsappNumeros}`;
+
   try {
     const respostaManychat = await fetch(
       "https://api.manychat.com/fb/subscriber/createSubscriber",
@@ -48,7 +62,7 @@ export default async function handler(req, res) {
           first_name: nome,
           last_name: sobrenome,
           email,
-          phone: `+${whatsapp}`,
+          phone: phoneManychat,
           has_opt_in_sms: false,
           has_opt_in_email: false,
           consent_phrase:

@@ -28,7 +28,7 @@ export default function Community() {
     setMensagem("");
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setEnviando(true);
 
@@ -121,7 +121,12 @@ export default function Community() {
     }
     setFormData((prev) => ({
       ...prev,
+      nome: prev.nome.trim(),
+      sobrenome: prev.sobrenome.trim(),
+      email: prev.email.trim(),
       whatsapp: whatsappNormalizado,
+      profissao: prev.profissao.trim(),
+      especialidade: prev.especialidade.trim(),
     }));
     setTipoMensagem("sucesso");
     setMensagem("Cadastro validado com sucesso.");
@@ -224,7 +229,6 @@ export default function Community() {
                   placeholder="Digite seu e-mail"
                   value={formData.email}
                   onChange={handleChange}
-                  required
                   className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
               </div>
@@ -243,7 +247,6 @@ export default function Community() {
                   placeholder="Ex.: (71) 99999-9999"
                   value={formData.whatsapp}
                   onChange={handleChange}
-                  required
                   className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
               </div>
@@ -262,7 +265,6 @@ export default function Community() {
                   placeholder="Ex.: Médico"
                   value={formData.profissao}
                   onChange={handleChange}
-                  required
                   className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
               </div>
@@ -272,7 +274,8 @@ export default function Community() {
                   htmlFor="especialidade"
                   className="block text-sm font-medium text-gray-200 mb-2"
                 >
-                  Especialidade
+                  Especialidade{" "}
+                  <span className="text-gray-400 font-normal">(opcional)</span>
                 </label>
                 <input
                   id="especialidade"
@@ -293,7 +296,6 @@ export default function Community() {
                 className="mt-1 h-4 w-4 shrink-0"
                 checked={formData.consentimento}
                 onChange={handleChange}
-                required
               />
               <span>
                 Concordo em receber pelo WhatsApp o link de acesso à Comunidade

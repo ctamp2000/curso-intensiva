@@ -61,8 +61,7 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           first_name: nome,
           last_name: sobrenome,
-          email,
-          phone: phoneManychat,
+          whatsapp_phone: phoneManychat,
           has_opt_in_sms: false,
           has_opt_in_email: false,
           consent_phrase:

@@ -71,6 +71,10 @@ export default async function handler(req, res) {
     );
 
     const resultadoManychat = await respostaManychat.json();
+    console.log(
+      "Resposta createSubscriber:",
+      JSON.stringify(resultadoManychat, null, 2),
+    );
 
     if (!respostaManychat.ok) {
       console.error(

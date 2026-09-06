@@ -87,6 +87,38 @@ export default async function handler(req, res) {
       });
     }
 
+    const subscriberId = resultadoManychat.data.id;
+
+    const respostaTag = await fetch(
+      "https://api.manychat.com/fb/subscriber/addTagByName",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.MANYCHAT_API_KEY}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          subscriber_id: subscriberId,
+          tag_name: "Comunidade",
+        }),
+      },
+    );
+
+    const resultadoTag = await respostaTag.json();
+
+    if (!respostaTag.ok) {
+      console.error(
+        "Erro ao aplicar tag no Manychat:",
+        JSON.stringify(resultadoTag, null, 2),
+      );
+
+      return res.status(502).json({
+        erro: "Contato criado, mas não foi possível aplicar a tag Comunidade.",
+        detalhe: resultadoTag,
+      });
+    }
+
     return res.status(200).json({
       sucesso: true,
       contatoManychat: resultadoManychat,

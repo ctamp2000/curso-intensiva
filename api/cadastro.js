@@ -89,6 +89,45 @@ export default async function handler(req, res) {
 
     const subscriberId = resultadoManychat.data.id;
 
+    const camposPersonalizados = [
+      { nome: "Profissão", valor: profissao },
+      { nome: "Especialidade", valor: especialidade || "" },
+      { nome: "Celular", valor: phoneManychat },
+      { nome: "Origem", valor: "Site UTI na Real" },
+    ];
+
+    for (const campo of camposPersonalizados) {
+      const respostaCampo = await fetch(
+        "https://api.manychat.com/fb/subscriber/setCustomFieldByName",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.MANYCHAT_API_KEY}`,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            subscriber_id: subscriberId,
+            field_name: campo.nome,
+            field_value: campo.valor,
+          }),
+        },
+      );
+      const resultadoCampo = await respostaCampo.json();
+
+      if (!respostaCampo.ok) {
+        console.error(
+          `Erro ao preencher ${campo.nome}:`,
+          JSON.stringify(resultadoCampo, null, 2),
+        );
+
+        return res.status(502).json({
+          erro: `Contato criado, mas não foi possível preencher o campo ${campo.nome}.`,
+          detalhe: resultadoCampo,
+        });
+      }
+    }
+
     const respostaTag = await fetch(
       "https://api.manychat.com/fb/subscriber/addTagByName",
       {

@@ -157,6 +157,13 @@ export default async function handler(req, res) {
     ];
 
     for (const campo of camposPersonalizados) {
+      if (
+        campo.valor === null ||
+        campo.valor === undefined ||
+        (typeof campo.valor === "string" && campo.valor.trim() === "")
+      ) {
+        continue;
+      }
       const respostaCampo = await fetch(
         "https://api.manychat.com/fb/subscriber/setCustomFieldByName",
         {

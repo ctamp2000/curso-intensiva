@@ -94,6 +94,7 @@ export default async function handler(req, res) {
       { nome: "Profissão", valor: profissao },
       { nome: "Especialidade", valor: especialidade || "" },
       { nome: "Celular", valor: phoneManychat },
+      { nome: "E-mail Cadastro", valor: email },
       { nome: "Origem", valor: "Site UTI na Real" },
     ];
 

@@ -134,11 +134,25 @@ export default async function handler(req, res) {
       subscriberId = resultadoBusca.data[0].id;
     }
 
+    const agora = new Date();
+
+    const partesData = new Intl.DateTimeFormat("sv-SE", {
+      timeZone: "America/Bahia",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    }).format(agora);
+
     const camposPersonalizados = [
       { nome: "Profissão", valor: profissao },
       { nome: "Especialidade", valor: especialidade || "" },
       { nome: "Celular", valor: phoneManychat },
       { nome: "E-mail Cadastro", valor: email },
+      { nome: "Data Cadastro Site", valor: partesData },
       { nome: "Origem", valor: "Site UTI na Real" },
     ];
 

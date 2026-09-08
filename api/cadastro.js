@@ -77,18 +77,62 @@ export default async function handler(req, res) {
       JSON.stringify(resultadoManychat, null, 2),
     );
 
-    if (!respostaManychat.ok) {
-      console.error(
-        "Erro Manychat:",
-        JSON.stringify(resultadoManychat, null, 2),
-      );
-      return res.status(502).json({
-        erro: "Não foi possível criar o contato no Manychat.",
-        detalhe: resultadoManychat,
-      });
-    }
+    let subscriberId;
 
-    const subscriberId = resultadoManychat.data.id;
+    if (respostaManychat.ok) {
+      subscriberId = resultadoManychat.data.id;
+    } else {
+      const mensagemErro = JSON.stringify(resultadoManychat);
+
+      const whatsappJaExiste = mensagemErro.includes(
+        "This WhatsApp ID already exists",
+      );
+
+      if (!whatsappJaExiste) {
+        console.error(
+          "Erro Manychat:",
+          JSON.stringify(resultadoManychat, null, 2),
+        );
+
+        return res.status(502).json({
+          erro: "Não foi possível criar o contato no Manychat.",
+          detalhe: resultadoManychat,
+        });
+      }
+
+      const respostaBusca = await fetch(
+        `https://api.manychat.com/fb/subscriber/findByCustomField?field_id=14949408&field_value=${encodeURIComponent(
+          phoneManychat,
+        )}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${process.env.MANYCHAT_API_KEY}`,
+            Accept: "application/json",
+          },
+        },
+      );
+
+      const resultadoBusca = await respostaBusca.json();
+
+      if (
+        !respostaBusca.ok ||
+        !resultadoBusca.data ||
+        resultadoBusca.data.length === 0
+      ) {
+        console.error(
+          "Contato existente, mas não localizado pelo campo Celular:",
+          JSON.stringify(resultadoBusca, null, 2),
+        );
+
+        return res.status(502).json({
+          erro: "O WhatsApp já existe no Manychat, mas não foi possível localizar o contato existente.",
+          detalhe: resultadoBusca,
+        });
+      }
+
+      subscriberId = resultadoBusca.data[0].id;
+    }
 
     const camposPersonalizados = [
       { nome: "Profissão", valor: profissao },

@@ -93,6 +93,7 @@ export default function Community() {
     }
 
     const whatsappNormalizado = `55${whatsapp}`;
+
     if (!regexTexto.test(profissao) || !/[A-Za-zÀ-ÖØ-öø-ÿ]/.test(profissao)) {
       setTipoMensagem("erro");
       setEnviando(false);

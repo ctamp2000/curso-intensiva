@@ -1,5 +1,34 @@
 const projects = [
   {
+    id: 26,
+    title: "A sedação não apaga a dor: ela só tira a capacidade de gritar.",
+    videoDate: "09/09/2026",
+    videoId: "SMgv8epAQD0", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/SMgv8epAQD0", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 25,
+    title: "A dor que ninguém vê: o maior erro no paciente sedado",
+    videoDate: "08/09/2026",
+    videoId: "_YzPhO3ywmk", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=_YzPhO3ywmk", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 24,
+    title: "O barulho pode estar prejudicando seu paciente?",
+    videoDate: "08/09/2026",
+    videoId: "LvpupGSTwy8", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/LvpupGSTwy8", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 23,
+    title: "O Maior Erro na Ventilação Mecânica na UTI",
+    videoDate: "04/09/2026",
+    videoId: "1-XJpp0gcsw", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/1-XJpp0gcsw", // link normal para abrir em nova aba  },
+  },
+
+  {
     id: 22,
     title: "Choque e hipotensão: pare de travar!",
     videoDate: "02/09/2026",

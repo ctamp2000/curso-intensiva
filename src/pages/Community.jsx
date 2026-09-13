@@ -372,9 +372,11 @@ export default function Community() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
               {/* Espaço reservado para a foto */}
               <div className="md:col-span-2">
-                <div className="min-h-72 rounded-2xl bg-brand-bar border border-gray-600 flex items-center justify-center">
-                  <p className="text-gray-400 text-sm">Foto do Dr. Bruno</p>
-                </div>
+                <img
+                  src="/bruno-badaro.jpeg"
+                  alt="Dr. Bruno Badaró"
+                  className="w-full h-80 sm:h-96 md:h-[420px] rounded-2xl object-cover object-top border border-gray-600"
+                />
               </div>
 
               {/* Apresentação */}
@@ -386,6 +388,9 @@ export default function Community() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-white">
                   Dr. Bruno Badaró
                 </h2>
+                <p className="mt-2 text-sm sm:text-base text-blue-400 font-medium">
+                  CRM-BA 1652 · RQE 16154
+                </p>
 
                 <p className="mt-5 text-gray-300 text-base sm:text-lg leading-relaxed">
                   A faculdade entrega o diploma, mas joga a gente no plantão sem

@@ -79,26 +79,33 @@ export default async function handler(req, res) {
 
     let subscriberId;
 
-    if (respostaManychat.ok) {
-      subscriberId = resultadoManychat.data.id;
-    } else {
-      const mensagemErro = JSON.stringify(resultadoManychat);
+   if (respostaManychat.ok) {
+  subscriberId = resultadoManychat.data.id;
+   } else {
+     const mensagemErro = JSON.stringify(resultadoManychat);
 
-      const whatsappJaExiste = mensagemErro.includes(
-        "This WhatsApp ID already exists",
-      );
+     const whatsappJaExiste = mensagemErro.includes(
+       "This WhatsApp ID already exists",
+     );
 
-      if (!whatsappJaExiste) {
-        console.error(
-          "Erro Manychat:",
-          JSON.stringify(resultadoManychat, null, 2),
-        );
+     if (whatsappJaExiste) {
+      console.log("Tentativa de cadastro com WhatsApp já existente:", phoneManychat);
 
-        return res.status(502).json({
-          erro: "Não foi possível criar o contato no Manychat.",
-          detalhe: resultadoManychat,
-        });
-      }
+      return res.status(409).json({
+       erro: "Este WhatsApp já está cadastrado na Comunidade UTI na Real.",
+      });
+    }
+
+    console.error(
+    "Erro Manychat:",
+    JSON.stringify(resultadoManychat, null, 2),
+    );
+
+    return res.status(502).json({
+      erro: "Não foi possível concluir o cadastro neste momento. Tente novamente.",
+      detalhe: resultadoManychat,
+    });
+  }
 
       const respostaBusca = await fetch(
         `https://api.manychat.com/fb/subscriber/findByCustomField?field_id=14949408&field_value=${encodeURIComponent(

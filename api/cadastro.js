@@ -242,7 +242,7 @@ export default async function handler(req, res) {
     console.error("Erro ao acessar Manychat:", erro);
 
     return res.status(500).json({
-      erro: "Erro interno ao processar o cadastro.",
+      erro: erro?.message || "Erro interno ao processar o cadastro.",
     });
   }
 }

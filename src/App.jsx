@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Community from "./pages/Community";
 import CommunityAccess from "./pages/CommunityAccess";
+import Obrigado from "./pages/Obrigado";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
           <Route path="/" element={<Community />} />
           <Route path="/portal" element={<Home />} />
           <Route path="/acesso-comunidade" element={<CommunityAccess />} />
+          <Route path="/obrigado" element={<Obrigado />} />
         </Routes>
       </main>
     </div>

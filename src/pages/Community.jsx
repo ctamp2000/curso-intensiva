@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function Community() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nome: "",
     sobrenome: "",
@@ -152,15 +154,15 @@ export default function Community() {
         ...dadosCadastro,
       }));
 
-      setTipoMensagem("sucesso");
-      setMensagem("Cadastro recebido com sucesso.");
-
       console.log("Resposta da API:", resultado);
+      navigate("/obrigado");
     } catch (erro) {
       console.error("Erro ao enviar cadastro:", erro);
 
       setTipoMensagem("erro");
-      setMensagem("Não foi possível enviar o cadastro. Tente novamente.");
+      setMensagem(
+        erro.message || "Não foi possível enviar o cadastro. Tente novamente.",
+      );
     } finally {
       setEnviando(false);
     }
@@ -169,35 +171,313 @@ export default function Community() {
     <div className="min-h-screen bg-brand-bg text-white">
       <main id="main-content" className="px-4 sm:px-6 md:px-8 py-6 md:py-7">
         <section className="w-full max-w-5xl mx-auto">
-          <div className="text-center">
-            <p className="text-sm tracking-[0.25em] uppercase text-blue-400 mb-4">
-              Comunidade UTI na Real
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            {/* LADO ESQUERDO — apresentação da comunidade */}
+            <div className="text-center lg:text-left">
+              <p className="text-sm tracking-[0.25em] uppercase text-blue-400 mb-4">
+                Comunidade UTI na Real
+              </p>
 
-            <h1 className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold leading-tight max-w-5xl mx-auto">
-              Entre para a comunidade de médicos que assumem o plantão crítico
-              com postura de especialista
-            </h1>
+              <h1 className="text-3xl sm:text-4xl md:text-[2.7rem] font-bold leading-tight">
+                O plantão de UTI não precisa ser um campo de batalha solitário.
+              </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-gray-200 max-w-3xl mx-auto">
-              Discussões reais de plantão, organização do raciocínio sob pressão
-              e o método UTI na Real — sem julgamento, sem enrolação.
-            </p>
+              <p className="mt-5 text-base sm:text-lg text-gray-200 leading-relaxed">
+                Uma comunidade para estudantes e profissionais de saúde que
+                querem entender melhor a terapia intensiva, discutir situações
+                reais de plantão e organizar o raciocínio com mais segurança.
+              </p>
+
+              <div className="mt-6">
+                <a
+                  href="#cadastro"
+                  className="inline-block rounded-lg bg-blue-600 px-7 py-3 font-semibold text-white transition hover:bg-blue-500"
+                >
+                  Quero fazer parte da comunidade
+                </a>
+              </div>
+            </div>
+
+            {/* LADO DIREITO — assunto recente da comunidade */}
+            <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6 sm:p-7">
+              <p className="text-xs tracking-[0.22em] uppercase text-blue-400 mb-3">
+                O que está rolando na comunidade
+              </p>
+
+              <p className="text-sm text-gray-400 mb-2">
+                Em discussão na comunidade
+              </p>
+
+              <h2 className="text-xl sm:text-2xl font-semibold text-white leading-snug">
+                Choque: como diferenciar séptico de hipovolêmico à beira do
+                leito, sem decoreba.
+              </h2>
+
+              <p className="mt-4 text-gray-300 leading-relaxed">
+                Discussões práticas, dúvidas e raciocínio aplicado ao plantão.
+              </p>
+            </div>
           </div>
 
-          <div className="mt-5 max-w-3xl mx-auto text-center">
-            <p className="text-sm tracking-[0.2em] uppercase text-blue-400 mb-2">
-              Ao entrar
-            </p>
+          {/* O QUE VOCÊ ENCONTRA NA COMUNIDADE */}
+          <section className="mt-14 border-t border-gray-700 pt-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+              O que você encontra na comunidade
+            </h2>
 
-            <p className="text-base sm:text-lg text-gray-100 leading-relaxed">
-              Você passa a fazer parte de um grupo de profissionais que
-              discutem, na real, o que ninguém ensina na formação: como
-              organizar o raciocínio quando tudo acontece ao mesmo tempo.
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                  1
+                </span>
+                <div>
+                  <h3 className="font-semibold text-white">
+                    Conteúdos curtos toda semana
+                  </h3>
+                  <p className="mt-1 text-gray-300">
+                    Explicações diretas ao ponto, pensadas para quem tem pouco
+                    tempo.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                  2
+                </span>
+                <div>
+                  <h3 className="font-semibold text-white">
+                    Suas dúvidas respondidas
+                  </h3>
+                  <p className="mt-1 text-gray-300">
+                    Pergunte sem medo e receba respostas em linguagem acessível.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                  3
+                </span>
+                <div>
+                  <h3 className="font-semibold text-white">
+                    Casos reais comentados
+                  </h3>
+                  <p className="mt-1 text-gray-300">
+                    Situações do plantão discutidas passo a passo, com
+                    raciocínio em voz alta.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                  4
+                </span>
+                <div>
+                  <h3 className="font-semibold text-white">
+                    Materiais de apoio
+                  </h3>
+                  <p className="mt-1 text-gray-300">
+                    Resumos e checklists práticos para consultar na hora que
+                    importa.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                  5
+                </span>
+                <div>
+                  <h3 className="font-semibold text-white">
+                    Uma rede de colegas
+                  </h3>
+                  <p className="mt-1 text-gray-300">
+                    Pessoas que vivem os mesmos desafios e caminham na mesma
+                    direção.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* PARA QUEM É */}
+          <section className="mt-14 border-t border-gray-700 pt-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+              Para quem é
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* 01 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 font-semibold">01</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Estudantes de saúde
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  Medicina, enfermagem, fisioterapia e farmácia querendo
+                  entender UTI antes do primeiro plantão.
+                </p>
+              </div>
+
+              {/* 02 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 font-semibold">02</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Residentes e recém-formados
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  Quem está começando e precisa de um segundo olhar confiável
+                  para as dúvidas do dia.
+                </p>
+              </div>
+
+              {/* 03 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 font-semibold">03</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Quem já atua em UTI
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  Profissionais que querem revisar condutas e trocar
+                  experiências com colegas.
+                </p>
+              </div>
+
+              {/* 04 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 font-semibold">04</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Quem se sente sozinho no plantão
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  Se a UTI ainda parece um território hostil, este é um espaço
+                  para caminhar acompanhado.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* QUEM CONDUZ A COMUNIDADE */}
+          <section className="mt-14 border-t border-gray-700 pt-10">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+              {/* Espaço reservado para a foto */}
+              <div className="md:col-span-2">
+                <div className="min-h-72 rounded-2xl bg-brand-bar border border-gray-600 flex items-center justify-center">
+                  <p className="text-gray-400 text-sm">Foto do Dr. Bruno</p>
+                </div>
+              </div>
+
+              {/* Apresentação */}
+              <div className="md:col-span-3">
+                <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-3">
+                  Quem conduz a comunidade
+                </p>
+
+                <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                  Dr. Bruno Badaró
+                </h2>
+
+                <p className="mt-5 text-gray-300 text-base sm:text-lg leading-relaxed">
+                  A faculdade entrega o diploma, mas joga a gente no plantão sem
+                  um sistema. Eu vi profissionais brilhantes travarem por medo e
+                  cansaço — e criei este espaço para que ninguém precise
+                  aprender UTI sozinho. Aqui eu traduzo a terapia intensiva em
+                  linguagem que faz sentido no dia a dia.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* COMO FUNCIONA */}
+          <section className="mt-14 border-t border-gray-700 pt-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+              Como funciona
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* 1 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 text-2xl font-semibold">1</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Cadastre-se aqui
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  Leva menos de um minuto e é totalmente gratuito.
+                </p>
+              </div>
+
+              {/* 2 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 text-2xl font-semibold">2</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Receba o convite
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  O link do grupo chega no seu WhatsApp.
+                </p>
+              </div>
+
+              {/* 3 */}
+              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
+                <span className="text-blue-400 text-2xl font-semibold">3</span>
+
+                <h3 className="mt-4 text-lg font-semibold text-white">
+                  Participe no seu ritmo
+                </h3>
+
+                <p className="mt-2 text-gray-300 leading-relaxed">
+                  Leia, pergunte e aprenda sem pressão.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* PRÓXIMO PASSO NATURAL */}
+          <section className="mt-14 border-t border-gray-700 pt-10">
+            <div className="bg-brand-bar border border-gray-600 rounded-2xl p-8 sm:p-10 text-center">
+              <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
+                Próximo passo natural
+              </p>
+
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">
+                Quando você quiser ir mais fundo
+              </h2>
+
+              <p className="mt-4 max-w-3xl mx-auto text-gray-300 text-base sm:text-lg leading-relaxed">
+                Para quem decide estruturar o aprendizado de forma completa,
+                existe uma formação aprofundada em UTI. Sem pressa: fique na
+                comunidade gratuita e, se fizer sentido para o seu momento, você
+                fica sabendo por lá.
+              </p>
+            </div>
+          </section>
+
+          <div className="mt-14 border-t border-gray-700 pt-10 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+              Entre na comunidade
+            </h2>
+
+            <p className="mt-3 text-base sm:text-lg text-gray-300">
+              Preencha seus dados e receba o convite no seu WhatsApp.
             </p>
           </div>
 
           <form
+            id="cadastro"
             onSubmit={handleSubmit}
             className="mt-6 max-w-4xl mx-auto bg-brand-bar border border-gray-700 rounded-2xl p-5 sm:p-6"
           >
@@ -332,7 +612,7 @@ export default function Community() {
                 disabled={enviando}
                 className="mt-2 mx-auto block rounded-lg bg-blue-600 px-6 py-2.5 font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {enviando ? "Enviando..." : "Quero entrar na comunidade"}
+                {enviando ? "Enviando..." : "Enviar cadastro"}
               </button>
             </div>{" "}
             {mensagem && (
@@ -352,6 +632,93 @@ export default function Community() {
           <p className="mt-4 text-xs sm:text-sm text-gray-400 text-center">
             Comunidade gratuita. Sem spam. Seus dados não são compartilhados.
           </p>
+        </section>
+        {/* PERGUNTAS FREQUENTES */}
+        <section className="mt-14 border-t border-gray-700 pt-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+            Perguntas frequentes
+          </h2>
+
+          <div className="space-y-4">
+            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
+                A comunidade é mesmo gratuita?
+                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p className="px-6 pb-6 text-gray-300 leading-relaxed">
+                Sim. A participação na comunidade UTI na Real é gratuita.
+              </p>
+            </details>
+
+            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
+                Preciso já trabalhar em UTI?
+                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p className="px-6 pb-6 text-gray-300 leading-relaxed">
+                Não. A comunidade também é voltada para estudantes, residentes,
+                recém-formados e profissionais que querem entender melhor a
+                terapia intensiva.
+              </p>
+            </details>
+
+            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
+                Vou receber muitas mensagens ou spam?
+                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p className="px-6 pb-6 text-gray-300 leading-relaxed">
+                Não. A proposta é manter comunicações relacionadas à comunidade,
+                sem envio de spam.
+              </p>
+            </details>
+
+            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
+                Como recebo o convite?
+                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p className="px-6 pb-6 text-gray-300 leading-relaxed">
+                Depois de preencher o cadastro, o link de acesso à comunidade é
+                enviado para o WhatsApp informado.
+              </p>
+            </details>
+          </div>
+        </section>
+        {/* CHAMADA FINAL */}
+        <section className="mt-14 border-t border-gray-700 pt-12 pb-10 text-center">
+          <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
+            UTI na Real
+          </p>
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl mx-auto leading-tight">
+            Sua jornada na UTI começa com uma conversa.
+          </h2>
+
+          <p className="mt-4 text-gray-300 text-base sm:text-lg">
+            Entre para a comunidade e participe no seu ritmo.
+          </p>
+
+          <div className="mt-7">
+            <a
+              href="#cadastro"
+              className="inline-block rounded-lg bg-blue-600 px-7 py-3 font-semibold text-white transition hover:bg-blue-500"
+            >
+              Quero fazer parte da comunidade
+            </a>
+          </div>
         </section>
       </main>
     </div>

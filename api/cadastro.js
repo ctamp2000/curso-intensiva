@@ -79,66 +79,35 @@ export default async function handler(req, res) {
 
     let subscriberId;
 
-   if (respostaManychat.ok) {
-  subscriberId = resultadoManychat.data.id;
-   } else {
-     const mensagemErro = JSON.stringify(resultadoManychat);
+    if (respostaManychat.ok) {
+      subscriberId = resultadoManychat.data.id;
+    } else {
+      const mensagemErro = JSON.stringify(resultadoManychat);
 
-     const whatsappJaExiste = mensagemErro.includes(
-       "This WhatsApp ID already exists",
-     );
-
-     if (whatsappJaExiste) {
-      console.log("Tentativa de cadastro com WhatsApp já existente:", phoneManychat);
-
-      return res.status(409).json({
-       erro: "Este WhatsApp já está cadastrado na Comunidade UTI na Real.",
-      });
-    }
-
-    console.error(
-    "Erro Manychat:",
-    JSON.stringify(resultadoManychat, null, 2),
-    );
-
-    return res.status(502).json({
-      erro: "Não foi possível concluir o cadastro neste momento. Tente novamente.",
-      detalhe: resultadoManychat,
-    });
-  }
-
-      const respostaBusca = await fetch(
-        `https://api.manychat.com/fb/subscriber/findByCustomField?field_id=14949408&field_value=${encodeURIComponent(
-          phoneManychat,
-        )}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${process.env.MANYCHAT_API_KEY}`,
-            Accept: "application/json",
-          },
-        },
+      const whatsappJaExiste = mensagemErro.includes(
+        "This WhatsApp ID already exists",
       );
 
-      const resultadoBusca = await respostaBusca.json();
-
-      if (
-        !respostaBusca.ok ||
-        !resultadoBusca.data ||
-        resultadoBusca.data.length === 0
-      ) {
-        console.error(
-          "Contato existente, mas não localizado pelo campo Celular:",
-          JSON.stringify(resultadoBusca, null, 2),
+      if (whatsappJaExiste) {
+        console.log(
+          "Tentativa de cadastro com WhatsApp já existente:",
+          phoneManychat,
         );
 
-        return res.status(502).json({
-          erro: "O WhatsApp já existe no Manychat, mas não foi possível localizar o contato existente.",
-          detalhe: resultadoBusca,
+        return res.status(409).json({
+          erro: "Este WhatsApp já está cadastrado na Comunidade UTI na Real.",
         });
       }
 
-      subscriberId = resultadoBusca.data[0].id;
+      console.error(
+        "Erro Manychat:",
+        JSON.stringify(resultadoManychat, null, 2),
+      );
+
+      return res.status(502).json({
+        erro: "Não foi possível concluir o cadastro neste momento. Tente novamente.",
+        detalhe: resultadoManychat,
+      });
     }
 
     const agora = new Date();

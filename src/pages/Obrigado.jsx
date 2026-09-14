@@ -25,6 +25,22 @@ export default function Obrigado() {
           </p>
         </div>
       </section>
+      <div className="mt-10">
+        <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
+          Próximo passo natural
+        </p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-white">
+          Quando você quiser ir mais fundo
+        </h2>
+
+        <p className="mt-4 text-gray-300 text-base sm:text-lg leading-relaxed">
+          Para quem decide estruturar o aprendizado de forma completa, existe
+          uma formação aprofundada em UTI. Sem pressa: fique na comunidade
+          gratuita e, se fizer sentido para o seu momento, você fica sabendo por
+          lá.
+        </p>
+      </div>
     </main>
   );
 }

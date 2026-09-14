@@ -306,7 +306,14 @@ export default function Community() {
               </div>
             </div>
           </section>
-
+          <div className="mt-10 text-center">
+            <a
+              href="#cadastro"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500 transition"
+            >
+              Quero fazer parte da comunidade
+            </a>
+          </div>
           {/* PARA QUEM É */}
           <section className="mt-14 border-t border-gray-700 pt-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
@@ -371,7 +378,14 @@ export default function Community() {
               </div>
             </div>
           </section>
-
+          <div className="mt-10 text-center">
+            <a
+              href="#cadastro"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500 transition"
+            >
+              Quero fazer parte da comunidade
+            </a>
+          </div>
           {/* QUEM CONDUZ A COMUNIDADE */}
           <section className="mt-14 border-t border-gray-700 pt-10">
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
@@ -394,7 +408,7 @@ export default function Community() {
                   Dr. Bruno Badaró
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-blue-400 font-medium">
-                  CRM-BA 1652 · RQE 16154
+                  CRM-BA 21652 · RQE 16154
                 </p>
 
                 <p className="mt-5 text-gray-300 text-base sm:text-lg leading-relaxed">
@@ -453,26 +467,6 @@ export default function Community() {
                   Leia, pergunte e aprenda sem pressão.
                 </p>
               </div>
-            </div>
-          </section>
-
-          {/* PRÓXIMO PASSO NATURAL */}
-          <section className="mt-14 border-t border-gray-700 pt-10">
-            <div className="bg-brand-bar border border-gray-600 rounded-2xl p-8 sm:p-10 text-center">
-              <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
-                Próximo passo natural
-              </p>
-
-              <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                Quando você quiser ir mais fundo
-              </h2>
-
-              <p className="mt-4 max-w-3xl mx-auto text-gray-300 text-base sm:text-lg leading-relaxed">
-                Para quem decide estruturar o aprendizado de forma completa,
-                existe uma formação aprofundada em UTI. Sem pressa: fique na
-                comunidade gratuita e, se fizer sentido para o seu momento, você
-                fica sabendo por lá.
-              </p>
             </div>
           </section>
 

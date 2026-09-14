@@ -330,8 +330,9 @@ export default function Community() {
                 </h3>
 
                 <p className="mt-2 text-gray-300 leading-relaxed">
-                  Medicina, enfermagem, fisioterapia e farmácia querendo
-                  entender UTI antes do primeiro plantão.
+                  Medicina, enfermagem, fisioterapia, farmácia e equipe
+                  multidisciplinar querendo entender UTI antes do primeiro
+                  plantão.
                 </p>
               </div>
 
@@ -414,9 +415,9 @@ export default function Community() {
                 <p className="mt-5 text-gray-300 text-base sm:text-lg leading-relaxed">
                   A faculdade entrega o diploma, mas joga a gente no plantão sem
                   um sistema. Eu vi profissionais brilhantes travarem por medo e
-                  cansaço — e criei este espaço para que ninguém precise
-                  aprender UTI sozinho. Aqui eu traduzo a terapia intensiva em
-                  linguagem que faz sentido no dia a dia.
+                  cansaço, e criei este espaço para que ninguém precise aprender
+                  UTI sozinho. Aqui eu traduzo a terapia intensiva em linguagem
+                  que faz sentido no dia a dia.
                 </p>
               </div>
             </div>

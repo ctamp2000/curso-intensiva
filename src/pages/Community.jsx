@@ -155,6 +155,11 @@ export default function Community() {
       }));
 
       console.log("Resposta da API:", resultado);
+
+      if (window.fbq) {
+        window.fbq("track", "Lead");
+      }
+
       navigate("/obrigado");
     } catch (erro) {
       console.error("Erro ao enviar cadastro:", erro);

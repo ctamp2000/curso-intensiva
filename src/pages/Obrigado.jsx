@@ -1,7 +1,7 @@
 export default function Obrigado() {
   return (
-    <main className="min-h-screen bg-brand-bg text-brand-text flex items-center justify-center px-5">
-      <section className="w-full max-w-3xl text-center">
+    <main className="min-h-screen bg-brand-bg text-brand-text px-5 py-16">
+      <section className="w-full max-w-4xl mx-auto text-center">
         <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
           UTI na Real
         </p>
@@ -24,23 +24,24 @@ export default function Obrigado() {
             Comunidade UTI na Real.
           </p>
         </div>
+
+        <div className="mt-16 border-t border-gray-700 pt-12">
+          <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
+            Próximo passo natural
+          </p>
+
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">
+            Quando você quiser ir mais fundo
+          </h2>
+
+          <p className="mt-4 max-w-2xl mx-auto text-gray-300 text-base sm:text-lg leading-relaxed">
+            Para quem decide estruturar o aprendizado de forma completa, existe
+            uma formação aprofundada em UTI. Sem pressa: fique na comunidade
+            gratuita e, se fizer sentido para o seu momento, você fica sabendo
+            por lá.
+          </p>
+        </div>
       </section>
-      <div className="mt-10">
-        <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
-          Próximo passo natural
-        </p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-white">
-          Quando você quiser ir mais fundo
-        </h2>
-
-        <p className="mt-4 text-gray-300 text-base sm:text-lg leading-relaxed">
-          Para quem decide estruturar o aprendizado de forma completa, existe
-          uma formação aprofundada em UTI. Sem pressa: fique na comunidade
-          gratuita e, se fizer sentido para o seu momento, você fica sabendo por
-          lá.
-        </p>
-      </div>
     </main>
   );
 }

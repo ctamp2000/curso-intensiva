@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Community() {
   const navigate = useNavigate();
@@ -14,6 +14,19 @@ export default function Community() {
   const [mensagem, setMensagem] = useState("");
   const [tipoMensagem, setTipoMensagem] = useState("");
   const [enviando, setEnviando] = useState(false);
+  const [conteudoDestaque, setConteudoDestaque] = useState(null);
+  useEffect(() => {
+    fetch("/api/conteudo")
+      .then((resposta) => resposta.json())
+      .then((dados) => {
+        if (dados.sucesso) {
+          setConteudoDestaque(dados.conteudo);
+        }
+      })
+      .catch((erro) => {
+        console.error("Erro ao buscar conteúdo de destaque:", erro);
+      });
+  }, []);
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -209,17 +222,19 @@ export default function Community() {
                 O que está rolando na comunidade
               </p>
 
-              <p className="text-sm text-gray-400 mb-2">
-                Em discussão na comunidade
-              </p>
-
+              <div className="flex justify-between items-center gap-4 mb-2">
+                <p className="text-sm text-gray-400 mb-2">
+                  {conteudoDestaque?.categoria || "Em discussão na comunidade"}
+                  {conteudoDestaque?.data && <> — {conteudoDestaque.data}</>}
+                </p>
+              </div>
               <h2 className="text-xl sm:text-2xl font-semibold text-white leading-snug">
-                Choque: como diferenciar séptico de hipovolêmico à beira do
-                leito, sem decoreba.
+                {conteudoDestaque?.titulo ||
+                  "Choque: como diferenciar séptico de hipovolêmico à beira do leito, sem decoreba."}
               </h2>
-
               <p className="mt-4 text-gray-300 leading-relaxed">
-                Discussões práticas, dúvidas e raciocínio aplicado ao plantão.
+                {conteudoDestaque?.resumo ||
+                  "Discussões práticas, dúvidas e raciocínio aplicado ao plantão."}
               </p>
             </div>
           </div>

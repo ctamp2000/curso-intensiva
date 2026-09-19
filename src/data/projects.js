@@ -1,5 +1,76 @@
 const projects = [
   {
+    id: 36,
+    title: "Revisão de plantão na UTI: você acha ou sabe? ",
+    videoDate: "18/09/2026",
+    videoId: "ON2fIaULV54", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/ON2fIaULV54", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 35,
+    title: "Como receber plantão na UTI sem surtar",
+    videoDate: "17/09/2026",
+    videoId: "eOo8St8tIKg", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/eOo8St8tIKg", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 34,
+    title: "1 dia de febre é pneumonia? Provavelmente não",
+    videoDate: "17/09/2026",
+    videoId: "50CBFPt7DxM", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/50CBFPt7DxM", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 33,
+    title: "O diagnóstico pode esperar. Isso não.",
+    videoDate: "16/09/2026",
+    videoId: "DFTdvOSeGnU", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/DFTdvOSeGnU", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 32,
+    title: "Paciente grave SEM diagnóstico: o que fazer primeiro na UTI?",
+    videoDate: "15/09/2026",
+    videoId: "7Xis0wUsspg", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=7Xis0wUsspg", // link normal para abrir em nova aba  },
+  },
+
+  {
+    id: 31,
+    title: "O que é o Método R.E.A.L. na UTI?",
+    videoDate: "15/09/2026",
+    videoId: "ljJtZLWlMNg", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/ljJtZLWlMNg", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 30,
+    title: "Ela chegou em gasping e eu não sabia o diagnóstico",
+    videoDate: "15/09/2026",
+    videoId: "bIc_Kjl9WIc", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/bIc_Kjl9WIc", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 29,
+    title: "O monitor apitou: por onde começar na UTI?",
+    videoDate: "14/09/2026",
+    videoId: "WppW5Qu8PNw", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/WppW5Qu8PNw", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 28,
+    title: "Como lidar com interrupções graves na UTI",
+    videoDate: "13/09/2026",
+    videoId: "dR81IgJK4XA", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/dR81IgJK4XA", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 27,
+    title: "30 SEGUNDOS QUE SALVAM SEU PLANTÃO",
+    videoDate: "10/09/2026",
+    videoId: "4ulb2INZ5Qk", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/4ulb2INZ5Qk", // link normal para abrir em nova aba  },
+  },
+  {
     id: 26,
     title: "A sedação não apaga a dor: ela só tira a capacidade de gritar.",
     videoDate: "09/09/2026",
@@ -123,54 +194,11 @@ const projects = [
     videoUrl: "https://www.youtube.com/shorts/LAJA6JgkgcA", // link normal para abrir em nova aba  },
   },
   {
-    id: 1,
-    title:
-      "Intubou. E agora? Parâmetros iniciais da VM e ajustes pós gasometria.",
-    videoDate: "30/07/2026",
-    videoId: "JnSmbBf-eiY", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/watch?v=JnSmbBf-eiY", // link normal para abrir em nova aba  },
-  },
-  {
-    id: 2,
-    title: "VC ou FR: o que mexer primeiro no ventilador?",
-    videoDate: "26/07/2026",
-    videoId: "oP-Sr2ukP-Q", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/watch?v=oP-Sr2ukP-Q", // link normal para abrir em nova aba  },
-  },
-  {
-    id: 3,
-    title: "Como interpretar QUALQUER gasometria em 5 passos (na prática).",
-    videoDate: "24/07/2026",
-    videoId: "FlDJuIyEnis", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/watch?v=FlDJuIyEnis", // link normal para abrir em nova aba  },
-  },
-  {
-    id: 4,
-    title: "Comunicação não é dom, é técnica. E isso muda tudo na UTI.",
-    videoDate: "18/07/2026",
-    videoId: "-PYn-4_2egw", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/watch?v=-PYn-4_2egw", // link normal para abrir em nova aba  },
-  },
-  {
-    id: 5,
-    title: "FE do ECO é suficiente? FEG vs PC: O que realmente importa.",
-    videoDate: "02/07/2026",
-    videoId: "HuMMpXaIAng", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/shorts/HuMMpXaIAng", // link normal para abrir em nova aba  },
-  },
-  {
-    id: 6,
-    title: "O perigo da PVC. Por que ela pode afogar seu paciente?",
-    videoDate: "19/06/2026",
-    videoId: "yd5BRm3nsiM", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/shorts/yd5BRm3nsiM", // link normal para abrir em nova aba  },
-  },
-  {
-    id: 7,
-    title: "Choque. O paradoxo da PAM normal.",
-    videoDate: "15/06/2026",
-    videoId: "SutPSOUFNJs", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/shorts/SutPSOUFNJs", // link normal para abrir em nova aba  },
+    id: 9,
+    title: "Choque na Real. Garanto que nunca mais vai esquecer os conceitos.",
+    videoDate: "14/06/2026",
+    videoId: "vWe8Zw9cVdk", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=vWe8Zw9cVdk", // link normal para abrir em nova aba  },
   },
   {
     id: 8,
@@ -180,11 +208,54 @@ const projects = [
     videoUrl: "https://www.youtube.com/shorts/BCK6vVlJdK8", // link normal para abrir em nova aba  },
   },
   {
-    id: 9,
-    title: "Choque na Real. Garanto que nunca mais vai esquecer os conceitos.",
-    videoDate: "14/06/2026",
-    videoId: "vWe8Zw9cVdk", // só o ID do vídeo
-    videoUrl: "https://www.youtube.com/watch?v=vWe8Zw9cVdk", // link normal para abrir em nova aba  },
+    id: 7,
+    title: "Choque. O paradoxo da PAM normal.",
+    videoDate: "15/06/2026",
+    videoId: "SutPSOUFNJs", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/SutPSOUFNJs", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 6,
+    title: "O perigo da PVC. Por que ela pode afogar seu paciente?",
+    videoDate: "19/06/2026",
+    videoId: "yd5BRm3nsiM", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/yd5BRm3nsiM", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 5,
+    title: "FE do ECO é suficiente? FEG vs PC: O que realmente importa.",
+    videoDate: "02/07/2026",
+    videoId: "HuMMpXaIAng", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/shorts/HuMMpXaIAng", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 4,
+    title: "Comunicação não é dom, é técnica. E isso muda tudo na UTI.",
+    videoDate: "18/07/2026",
+    videoId: "-PYn-4_2egw", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=-PYn-4_2egw", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 3,
+    title: "Como interpretar QUALQUER gasometria em 5 passos (na prática).",
+    videoDate: "24/07/2026",
+    videoId: "FlDJuIyEnis", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=FlDJuIyEnis", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 2,
+    title: "VC ou FR: o que mexer primeiro no ventilador?",
+    videoDate: "26/07/2026",
+    videoId: "oP-Sr2ukP-Q", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=oP-Sr2ukP-Q", // link normal para abrir em nova aba  },
+  },
+  {
+    id: 1,
+    title:
+      "Intubou. E agora? Parâmetros iniciais da VM e ajustes pós gasometria.",
+    videoDate: "30/07/2026",
+    videoId: "JnSmbBf-eiY", // só o ID do vídeo
+    videoUrl: "https://www.youtube.com/watch?v=JnSmbBf-eiY", // link normal para abrir em nova aba  },
   },
 ];
 export default projects;

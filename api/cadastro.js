@@ -5,15 +5,7 @@ export default async function handler(req, res) {
     });
   }
 
-  const {
-    nome,
-    sobrenome,
-    email,
-    whatsapp,
-    profissao,
-    especialidade,
-    consentimento,
-  } = req.body || {};
+  const { nome, email, whatsapp, profissao, consentimento } = req.body || {};
 
   if (!process.env.MANYCHAT_API_KEY) {
     return res.status(500).json({
@@ -21,20 +13,16 @@ export default async function handler(req, res) {
     });
   }
 
-  if (
-    !nome ||
-    !sobrenome ||
-    !email ||
-    !whatsapp ||
-    !profissao ||
-    !consentimento
-  ) {
+  if (!nome || !email || !whatsapp || !profissao || !consentimento) {
     return res.status(400).json({
       erro: "Dados obrigatórios não informados.",
     });
   }
 
   let whatsappNumeros = whatsapp.replace(/\D/g, "");
+  const partesNome = nome.trim().split(/\s+/);
+  const primeiroNome = partesNome[0];
+  const sobrenomeManychat = partesNome.slice(1).join(" ");
 
   // Remove zero antes do DDD
   if (whatsappNumeros.startsWith("0")) {
@@ -59,8 +47,8 @@ export default async function handler(req, res) {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          first_name: nome,
-          last_name: sobrenome,
+          first_name: primeiroNome,
+          last_name: sobrenomeManychat,
           email: email,
           whatsapp_phone: phoneManychat,
           has_opt_in_sms: false,
@@ -125,7 +113,6 @@ export default async function handler(req, res) {
 
     const camposPersonalizados = [
       { nome: "Profissão", valor: profissao },
-      { nome: "Especialidade", valor: especialidade || "" },
       { nome: "Celular", valor: phoneManychat },
       { nome: "E-mail Cadastro", valor: email },
       { nome: "Data Cadastro Site", valor: partesData },
@@ -206,11 +193,9 @@ export default async function handler(req, res) {
       contatoManychat: resultadoManychat,
       dadosRecebidos: {
         nome,
-        sobrenome,
         email,
         whatsapp,
         profissao,
-        especialidade,
         consentimento,
       },
     });

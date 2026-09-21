@@ -4,11 +4,9 @@ export default function Community() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nome: "",
-    sobrenome: "",
     email: "",
     whatsapp: "",
     profissao: "",
-    especialidade: "",
     consentimento: false,
   });
   const [mensagem, setMensagem] = useState("");
@@ -50,7 +48,6 @@ export default function Community() {
     const nome = formData.nome.trim();
     const email = formData.email.trim();
     const profissao = formData.profissao.trim();
-    const especialidade = formData.especialidade.trim();
 
     // Letras, acentos, espaços, hífen e apóstrofo
     const regexNome = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,}$/;
@@ -63,16 +60,7 @@ export default function Community() {
     if (!regexNome.test(nome)) {
       setTipoMensagem("erro");
       setMensagem(
-        "Informe um nome válido. Use apenas letras, espaços, hífen ou apóstrofo.",
-      );
-      setEnviando(false);
-      return;
-    }
-
-    if (!regexNome.test(formData.sobrenome.trim())) {
-      setTipoMensagem("erro");
-      setMensagem(
-        "Informe um sobrenome válido. Use apenas letras, espaços, hífen ou apóstrofo.",
+        "Informe um nome completo válido. Use apenas letras, espaços, hífen ou apóstrofo.",
       );
       setEnviando(false);
       return;
@@ -109,24 +97,23 @@ export default function Community() {
 
     const whatsappNormalizado = `55${whatsapp}`;
 
-    if (!regexTexto.test(profissao) || !/[A-Za-zÀ-ÖØ-öø-ÿ]/.test(profissao)) {
+    const profissoesValidas = [
+      "Médico generalista",
+      "Médico especialista",
+      "Médico residente",
+      "Estudante de medicina",
+      "Fisioterapeuta",
+      "Psicólogo",
+      "Enfermeiro",
+      "Outros",
+    ];
+
+    if (!profissoesValidas.includes(profissao)) {
       setTipoMensagem("erro");
       setEnviando(false);
-      setMensagem("Informe uma profissão válida.");
+      setMensagem("Selecione uma profissão.");
       return;
     }
-
-    if (
-      especialidade &&
-      (!regexTexto.test(especialidade) ||
-        !/[A-Za-zÀ-ÖØ-öø-ÿ]/.test(especialidade))
-    ) {
-      setTipoMensagem("erro");
-      setEnviando(false);
-      setMensagem("Informe uma especialidade válida.");
-      return;
-    }
-
     if (!formData.consentimento) {
       setTipoMensagem("erro");
       setEnviando(false);
@@ -137,11 +124,9 @@ export default function Community() {
     }
     const dadosCadastro = {
       nome: formData.nome.trim(),
-      sobrenome: formData.sobrenome.trim(),
       email: formData.email.trim(),
       whatsapp: whatsappNormalizado,
       profissao: formData.profissao.trim(),
-      especialidade: formData.especialidade.trim(),
       consentimento: formData.consentimento,
     };
 
@@ -428,11 +413,18 @@ export default function Community() {
                 </p>
 
                 <p className="mt-5 text-gray-300 text-base sm:text-lg leading-relaxed">
-                  A faculdade entrega o diploma, mas joga a gente no plantão sem
-                  um sistema. Eu vi profissionais brilhantes travarem por medo e
-                  cansaço, e criei este espaço para que ninguém precise aprender
-                  UTI sozinho. Aqui eu traduzo a terapia intensiva em linguagem
-                  que faz sentido no dia a dia.
+                  Sou intensivista formado pela UFBA em Janeiro de 2010 e,
+                  durante todo esse tempo, adquiri experiências como
+                  plantonista, diarista e coordenador de UTI. Nesse tempo, vi
+                  médicos brilhantes travarem no plantão. Não por falta de
+                  conteúdo, mas por falta de um sistema para organizar o
+                  raciocínio sob pressão.
+                </p>
+
+                <p className="mt-4 text-gray-300 text-base sm:text-lg leading-relaxed">
+                  Criei o UTI na Real para traduzir a terapia intensiva em
+                  método prático. O roteiro que uso na beira do leito, pronto
+                  para o seu próximo plantão.
                 </p>
               </div>
             </div>
@@ -508,37 +500,19 @@ export default function Community() {
                   htmlFor="nome"
                   className="block text-sm font-medium text-gray-200 mb-2"
                 >
-                  Nome
+                  Nome completo
                 </label>
+
                 <input
                   id="nome"
                   name="nome"
                   type="text"
-                  placeholder="Digite seu nome"
+                  placeholder="Digite seu nome completo"
                   value={formData.nome}
                   onChange={handleChange}
                   className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
               </div>
-              <div className="md:col-span-3">
-                <label
-                  htmlFor="sobrenome"
-                  className="block text-sm font-medium text-gray-200 mb-2"
-                >
-                  Sobrenome
-                </label>
-
-                <input
-                  id="sobrenome"
-                  name="sobrenome"
-                  type="text"
-                  placeholder="Digite seu sobrenome"
-                  value={formData.sobrenome}
-                  onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-              </div>
-
               <div className="md:col-span-3">
                 <label
                   htmlFor="email"
@@ -582,34 +556,28 @@ export default function Community() {
                 >
                   Profissão
                 </label>
-                <input
+
+                <select
                   id="profissao"
                   name="profissao"
-                  type="text"
-                  placeholder="Ex.: Médico"
                   value={formData.profissao}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-              </div>
-
-              <div className="md:col-span-3">
-                <label
-                  htmlFor="especialidade"
-                  className="block text-sm font-medium text-gray-200 mb-2"
+                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
                 >
-                  Especialidade{" "}
-                  <span className="text-gray-400 font-normal">(opcional)</span>
-                </label>
-                <input
-                  id="especialidade"
-                  name="especialidade"
-                  type="text"
-                  placeholder="Ex.: Medicina Intensiva"
-                  value={formData.especialidade}
-                  onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
+                  <option value="">Selecione sua profissão</option>
+                  <option value="Médico generalista">Médico generalista</option>
+                  <option value="Médico especialista">
+                    Médico especialista
+                  </option>
+                  <option value="Médico residente">Médico residente</option>
+                  <option value="Estudante de medicina">
+                    Estudante de medicina
+                  </option>
+                  <option value="Fisioterapeuta">Fisioterapeuta</option>
+                  <option value="Psicólogo">Psicólogo</option>
+                  <option value="Enfermeiro">Enfermeiro</option>
+                  <option value="Outros">Outros</option>
+                </select>
               </div>
             </div>
             <label className="mt-4 flex items-start gap-3 text-sm text-gray-300 leading-relaxed cursor-pointer">

@@ -177,11 +177,12 @@ export default function Community() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             {/* LADO ESQUERDO — apresentação da comunidade */}
             <div className="text-center lg:text-left">
-              <p className="text-sm tracking-[0.25em] uppercase text-blue-400 mb-4">
+              <p className="text-sm tracking-[0.25em] uppercase text-[#C8A24F] mb-4">
+                {" "}
                 Comunidade UTI na Real
               </p>
 
-              <h1 className="text-3xl sm:text-4xl md:text-[2.7rem] font-bold leading-tight">
+              <h1 className="font-display text-[1.75rem] sm:text-4xl md:text-[2.7rem] font-bold leading-tight">
                 O plantão de UTI não precisa ser um campo de batalha solitário.
               </h1>
 
@@ -194,7 +195,7 @@ export default function Community() {
               <div className="mt-6">
                 <a
                   href="#cadastro"
-                  className="inline-block rounded-lg bg-blue-600 px-7 py-3 font-semibold text-white transition hover:bg-blue-500"
+                  className="inline-block rounded-lg bg-[#C8A24F] px-7 py-3 font-semibold text-black transition hover:bg-[#D6B45F]"
                 >
                   Quero fazer parte da comunidade
                 </a>
@@ -202,11 +203,12 @@ export default function Community() {
             </div>
 
             {/* LADO DIREITO — assunto recente da comunidade */}
-            <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6 sm:p-7">
-              <p className="text-xs tracking-[0.22em] uppercase text-blue-400 mb-3">
+            <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6 sm:p-7">
+              {" "}
+              <p className="text-xs tracking-[0.22em] uppercase text-[#C8A24F] mb-3">
+                {" "}
                 O que está rolando na comunidade
               </p>
-
               <div className="flex justify-between items-center gap-4 mb-2">
                 <p className="text-sm text-gray-400 mb-2">
                   {conteudoDestaque?.categoria || "Em discussão na comunidade"}
@@ -225,14 +227,15 @@ export default function Community() {
           </div>
 
           {/* O QUE VOCÊ ENCONTRA NA COMUNIDADE */}
-          <section className="mt-14 border-t border-gray-700 pt-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <section className="mt-14 border-t border-[#C8A24F]/30 pt-10">
+            {" "}
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8">
               O que você encontra na comunidade
             </h2>
-
             <div className="space-y-6">
               <div className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C8A24F] text-[#C8A24F] font-semibold">
+                  {" "}
                   1
                 </span>
                 <div>
@@ -247,7 +250,8 @@ export default function Community() {
               </div>
 
               <div className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C8A24F] text-[#C8A24F] font-semibold">
+                  {" "}
                   2
                 </span>
                 <div>
@@ -261,7 +265,8 @@ export default function Community() {
               </div>
 
               <div className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C8A24F] text-[#C8A24F] font-semibold">
+                  {" "}
                   3
                 </span>
                 <div>
@@ -276,7 +281,8 @@ export default function Community() {
               </div>
 
               <div className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C8A24F] text-[#C8A24F] font-semibold">
+                  {" "}
                   4
                 </span>
                 <div>
@@ -291,7 +297,8 @@ export default function Community() {
               </div>
 
               <div className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-400 text-blue-400 font-semibold">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#C8A24F] text-[#C8A24F] font-semibold">
+                  {" "}
                   5
                 </span>
                 <div>
@@ -309,26 +316,25 @@ export default function Community() {
           <div className="mt-10 text-center">
             <a
               href="#cadastro"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500 transition"
+              className="inline-flex items-center justify-center rounded-xl bg-[#C8A24F] px-6 py-3 font-semibold text-black hover:bg-[#D6B45F] transition"
             >
               Quero fazer parte da comunidade
             </a>
           </div>
           {/* PARA QUEM É */}
-          <section className="mt-14 border-t border-gray-700 pt-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <section className="mt-14 border-t border-[#C8A24F]/30 pt-10">
+            {" "}
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8">
               Para quem é
             </h2>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* 01 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 font-semibold">01</span>
-
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                {" "}
+                <span className="text-[#C8A24F] font-semibold">01</span>{" "}
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Estudantes de saúde
                 </h3>
-
                 <p className="mt-2 text-gray-300 leading-relaxed">
                   Medicina, enfermagem, fisioterapia, farmácia e equipe
                   multidisciplinar querendo entender UTI antes do primeiro
@@ -337,13 +343,12 @@ export default function Community() {
               </div>
 
               {/* 02 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 font-semibold">02</span>
-
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                {" "}
+                <span className="text-[#C8A24F] font-semibold">02</span>{" "}
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Residentes e recém-formados
                 </h3>
-
                 <p className="mt-2 text-gray-300 leading-relaxed">
                   Quem está começando e precisa de um segundo olhar confiável
                   para as dúvidas do dia.
@@ -351,13 +356,12 @@ export default function Community() {
               </div>
 
               {/* 03 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 font-semibold">03</span>
-
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                {" "}
+                <span className="text-[#C8A24F] font-semibold">03</span>{" "}
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Quem já atua em UTI
                 </h3>
-
                 <p className="mt-2 text-gray-300 leading-relaxed">
                   Profissionais que querem revisar condutas e trocar
                   experiências com colegas.
@@ -365,13 +369,12 @@ export default function Community() {
               </div>
 
               {/* 04 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 font-semibold">04</span>
-
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                {" "}
+                <span className="text-[#C8A24F] font-semibold">04</span>{" "}
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Quem se sente sozinho no plantão
                 </h3>
-
                 <p className="mt-2 text-gray-300 leading-relaxed">
                   Se a UTI ainda parece um território hostil, este é um espaço
                   para caminhar acompanhado.
@@ -382,13 +385,14 @@ export default function Community() {
           <div className="mt-10 text-center">
             <a
               href="#cadastro"
-              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500 transition"
+              className="inline-flex items-center justify-center rounded-xl bg-[#C8A24F] px-6 py-3 font-semibold text-black hover:bg-[#D6B45F] transition"
             >
               Quero fazer parte da comunidade
             </a>
           </div>
           {/* QUEM CONDUZ A COMUNIDADE */}
-          <section className="mt-14 border-t border-gray-700 pt-10">
+          <section className="mt-14 border-t border-[#C8A24F]/30 pt-10">
+            {" "}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
               {/* Espaço reservado para a foto */}
               <div className="md:col-span-2">
@@ -401,14 +405,16 @@ export default function Community() {
 
               {/* Apresentação */}
               <div className="md:col-span-3">
-                <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-3">
+                <p className="text-sm tracking-[0.22em] uppercase text-[#C8A24F] mb-3">
+                  {" "}
                   Quem conduz a comunidade
                 </p>
 
                 <h2 className="text-2xl sm:text-3xl font-bold text-white">
                   Dr. Bruno Badaró
                 </h2>
-                <p className="mt-2 text-sm sm:text-base text-blue-400 font-medium">
+                <p className="mt-2 text-sm sm:text-base text-[#C8A24F] font-medium">
+                  {" "}
                   CRM-BA 21652 · RQE 16154
                 </p>
 
@@ -431,15 +437,15 @@ export default function Community() {
           </section>
 
           {/* COMO FUNCIONA */}
-          <section className="mt-14 border-t border-gray-700 pt-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+          <section className="mt-14 border-t border-[#C8A24F]/30 pt-10">
+            {" "}
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8">
               Como funciona
             </h2>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {/* 1 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 text-2xl font-semibold">1</span>
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                <span className="text-[#C8A24F] text-2xl font-semibold">1</span>
 
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Cadastre-se aqui
@@ -451,8 +457,8 @@ export default function Community() {
               </div>
 
               {/* 2 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 text-2xl font-semibold">2</span>
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                <span className="text-[#C8A24F] text-2xl font-semibold">2</span>
 
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Receba o convite
@@ -464,8 +470,8 @@ export default function Community() {
               </div>
 
               {/* 3 */}
-              <div className="bg-brand-bar border border-gray-600 rounded-2xl p-6">
-                <span className="text-blue-400 text-2xl font-semibold">3</span>
+              <div className="bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-6">
+                <span className="text-[#C8A24F] text-2xl font-semibold">3</span>
 
                 <h3 className="mt-4 text-lg font-semibold text-white">
                   Participe no seu ritmo
@@ -478,11 +484,11 @@ export default function Community() {
             </div>
           </section>
 
-          <div className="mt-14 border-t border-gray-700 pt-10 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+          <div className="mt-14 border-t border-[#C8A24F]/30 pt-10 text-center">
+            {" "}
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
               Entre na comunidade
             </h2>
-
             <p className="mt-3 text-base sm:text-lg text-gray-300">
               Preencha seus dados e receba o convite no seu WhatsApp.
             </p>
@@ -491,7 +497,7 @@ export default function Community() {
           <form
             id="cadastro"
             onSubmit={handleSubmit}
-            className="mt-6 max-w-4xl mx-auto bg-brand-bar border border-gray-700 rounded-2xl p-5 sm:p-6"
+            className="mt-6 max-w-4xl mx-auto bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-5 sm:p-6"
           >
             {" "}
             <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
@@ -510,7 +516,7 @@ export default function Community() {
                   placeholder="Digite seu nome completo"
                   value={formData.nome}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#C8A24F]"
                 />
               </div>
               <div className="md:col-span-3">
@@ -527,7 +533,7 @@ export default function Community() {
                   placeholder="Digite seu e-mail"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#C8A24F]"
                 />
               </div>
 
@@ -545,7 +551,7 @@ export default function Community() {
                   placeholder="Ex.: (71) 99999-9999"
                   value={formData.whatsapp}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#C8A24F]"
                 />
               </div>
 
@@ -562,7 +568,7 @@ export default function Community() {
                   name="profissao"
                   value={formData.profissao}
                   onChange={handleChange}
-                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full rounded-lg bg-brand-bg border border-gray-600 px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[#C8A24F]"
                 >
                   <option value="">Selecione sua profissão</option>
                   <option value="Médico generalista">Médico generalista</option>
@@ -585,7 +591,7 @@ export default function Community() {
                 id="consentimento"
                 name="consentimento"
                 type="checkbox"
-                className="mt-1 h-4 w-4 shrink-0"
+                className="mt-1 h-4 w-4 shrink-0 accent-[#C8A24F]"
                 checked={formData.consentimento}
                 onChange={handleChange}
               />
@@ -598,7 +604,7 @@ export default function Community() {
               <button
                 type="submit"
                 disabled={enviando}
-                className="mt-2 mx-auto block rounded-lg bg-blue-600 px-6 py-2.5 font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-2 mx-auto block rounded-lg bg-[#C8A24F] px-6 py-2.5 font-semibold text-black transition hover:bg-[#D6B45F] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {enviando ? "Enviando..." : "Enviar cadastro"}
               </button>
@@ -622,16 +628,16 @@ export default function Community() {
           </p>
         </section>
         {/* PERGUNTAS FREQUENTES */}
-        <section className="mt-14 border-t border-gray-700 pt-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8">
+        <section className="mt-14 max-w-6xl mx-auto border-t border-[#C8A24F]/30 pt-10">
+          {" "}
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8">
             Perguntas frequentes
           </h2>
-
           <div className="space-y-4">
-            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+            <details className="group bg-[#111111] border border-[#C8A24F]/50 rounded-2xl">
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
                 A comunidade é mesmo gratuita?
-                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                <span className="text-[#C8A24F] text-2xl transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
@@ -641,10 +647,10 @@ export default function Community() {
               </p>
             </details>
 
-            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+            <details className="group bg-[#111111] border border-[#C8A24F]/50 rounded-2xl">
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
                 Preciso já trabalhar em UTI?
-                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                <span className="text-[#C8A24F] text-2xl transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
@@ -656,10 +662,10 @@ export default function Community() {
               </p>
             </details>
 
-            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+            <details className="group bg-[#111111] border border-[#C8A24F]/50 rounded-2xl">
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
                 Vou receber muitas mensagens ou spam?
-                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                <span className="text-[#C8A24F] text-2xl transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
@@ -670,10 +676,10 @@ export default function Community() {
               </p>
             </details>
 
-            <details className="group bg-brand-bar border border-gray-600 rounded-2xl">
+            <details className="group bg-[#111111] border border-[#C8A24F]/50 rounded-2xl">
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-semibold text-white">
                 Como recebo o convite?
-                <span className="text-blue-400 text-2xl transition-transform group-open:rotate-45">
+                <span className="text-[#C8A24F] text-2xl transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
@@ -686,12 +692,13 @@ export default function Community() {
           </div>
         </section>
         {/* CHAMADA FINAL */}
-        <section className="mt-14 border-t border-gray-700 pt-12 pb-10 text-center">
-          <p className="text-sm tracking-[0.22em] uppercase text-blue-400 mb-4">
+        <section className="mt-14 border-t border-[#C8A24F]/40 pt-12 pb-10 text-center">
+          <p className="text-sm tracking-[0.22em] uppercase text-[#C8A24F] mb-4">
+            {" "}
             UTI na Real
           </p>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl mx-auto leading-tight">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-3xl mx-auto leading-tight">
             Sua jornada na UTI começa com uma conversa.
           </h2>
 
@@ -702,12 +709,92 @@ export default function Community() {
           <div className="mt-7">
             <a
               href="#cadastro"
-              className="inline-block rounded-lg bg-blue-600 px-7 py-3 font-semibold text-white transition hover:bg-blue-500"
+              className="inline-block rounded-lg bg-[#C8A24F] px-7 py-3 font-semibold text-black transition hover:bg-[#D6B45F]"
             >
               Quero fazer parte da comunidade
             </a>
           </div>
         </section>
+        {/* REDES SOCIAIS */}
+        <footer className="border-t border-[#C8A24F]/30 py-8 text-center">
+          <p className="text-sm tracking-[0.22em] uppercase text-[#C8A24F] mb-4">
+            Acompanhe o UTI na Real
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+            <a
+              href="https://www.instagram.com/utinareal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do UTI na Real"
+              className="flex items-center gap-2 text-gray-300 transition hover:text-[#C8A24F]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+              Instagram
+            </a>
+
+            <a
+              href="https://www.youtube.com/@utinareal"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube do UTI na Real"
+              className="flex items-center gap-2 text-gray-300 transition hover:text-[#C8A24F]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="18" height="14" rx="4" />
+                <path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none" />
+              </svg>
+              YouTube
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@utinareal"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok do UTI na Real"
+              className="flex items-center gap-2 text-gray-300 transition hover:text-[#C8A24F]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M14 4v10.5a4.5 4.5 0 1 1-4-4.47" />
+                <path d="M14 4c.7 2.2 2.2 3.7 4.5 4" />
+              </svg>
+              TikTok
+            </a>
+          </div>
+        </footer>
       </main>
     </div>
   );

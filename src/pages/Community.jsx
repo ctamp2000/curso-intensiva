@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { track } from "@vercel/analytics";
 export default function Community() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -157,7 +158,11 @@ export default function Community() {
       if (window.fbq) {
         window.fbq("track", "Lead");
       }
-
+      try {
+        track("Cadastro concluído");
+      } catch (erroAnalytics) {
+        console.warn("Não foi possível registrar o evento:", erroAnalytics);
+      }
       navigate("/obrigado");
     } catch (erro) {
       console.error("Erro ao enviar cadastro:", erro);

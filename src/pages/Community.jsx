@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { track } from "@vercel/analytics";
 export default function Community() {
   const navigate = useNavigate();
+  const cadastroIniciado = useRef(false);
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -27,7 +28,28 @@ export default function Community() {
       });
   }, []);
 
+  function registrarCliqueCadastro() {
+    try {
+      track("Clique para cadastrar");
+    } catch (erroAnalytics) {
+      console.warn("Não foi possível registrar o clique:", erroAnalytics);
+    }
+  }
+
+  function registrarInicioCadastro() {
+    if (cadastroIniciado.current) return;
+
+    cadastroIniciado.current = true;
+
+    try {
+      track("Início do cadastro");
+    } catch (erroAnalytics) {
+      console.warn("Não foi possível registrar o início:", erroAnalytics);
+    }
+  }
+
   function handleChange(event) {
+    registrarInicioCadastro();
     const { name, value, type, checked } = event.target;
     let novoValor = type === "checkbox" ? checked : value;
 
@@ -200,10 +222,14 @@ export default function Community() {
               <div className="mt-6">
                 <a
                   href="#cadastro"
+                  onClick={registrarCliqueCadastro}
                   className="inline-block rounded-lg bg-[#C8A24F] px-7 py-3 font-semibold text-black transition hover:bg-[#D6B45F]"
                 >
                   Quero fazer parte da comunidade
                 </a>
+                <p className="mt-3 text-sm text-gray-300">
+                  Comunidade gratuita.
+                </p>
               </div>
             </div>
 
@@ -321,6 +347,7 @@ export default function Community() {
           <div className="mt-10 text-center">
             <a
               href="#cadastro"
+              onClick={registrarCliqueCadastro}
               className="inline-flex items-center justify-center rounded-xl bg-[#C8A24F] px-6 py-3 font-semibold text-black hover:bg-[#D6B45F] transition"
             >
               Quero fazer parte da comunidade
@@ -390,6 +417,7 @@ export default function Community() {
           <div className="mt-10 text-center">
             <a
               href="#cadastro"
+              onClick={registrarCliqueCadastro}
               className="inline-flex items-center justify-center rounded-xl bg-[#C8A24F] px-6 py-3 font-semibold text-black hover:bg-[#D6B45F] transition"
             >
               Quero fazer parte da comunidade
@@ -489,7 +517,10 @@ export default function Community() {
             </div>
           </section>
 
-          <div className="mt-14 border-t border-[#C8A24F]/30 pt-10 text-center">
+          <div
+            id="cadastro"
+            className="mt-14 border-t border-[#C8A24F]/30 pt-10 text-center"
+          >
             {" "}
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">
               Entre na comunidade
@@ -500,7 +531,6 @@ export default function Community() {
           </div>
 
           <form
-            id="cadastro"
             onSubmit={handleSubmit}
             className="mt-6 max-w-4xl mx-auto bg-[#111111] border border-[#C8A24F]/40 rounded-2xl p-5 sm:p-6"
           >
@@ -518,6 +548,7 @@ export default function Community() {
                   id="nome"
                   name="nome"
                   type="text"
+                  autoComplete="name"
                   placeholder="Digite seu nome completo"
                   value={formData.nome}
                   onChange={handleChange}
@@ -535,6 +566,7 @@ export default function Community() {
                   id="email"
                   name="email"
                   type="email"
+                  autoComplete="email"
                   placeholder="Digite seu e-mail"
                   value={formData.email}
                   onChange={handleChange}
@@ -553,6 +585,7 @@ export default function Community() {
                   id="whatsapp"
                   name="whatsapp"
                   type="tel"
+                  autoComplete="tel"
                   placeholder="Ex.: (71) 99999-9999"
                   value={formData.whatsapp}
                   onChange={handleChange}
@@ -714,6 +747,7 @@ export default function Community() {
           <div className="mt-7">
             <a
               href="#cadastro"
+              onClick={registrarCliqueCadastro}
               className="inline-block rounded-lg bg-[#C8A24F] px-7 py-3 font-semibold text-black transition hover:bg-[#D6B45F]"
             >
               Quero fazer parte da comunidade
